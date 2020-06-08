@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "flight-booking-cdv"
+    }
+  },
+  "defaultProject": "flight-booking-cdv",
+  "cli": {
+    "analytics": "6b726777-59b4-4953-80c7-a483dfc0ca60"
+  }
 }
