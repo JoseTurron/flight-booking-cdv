@@ -1,1 +1,52 @@
-<p>chooseflight works!</p>
+<h1>Choose date and connection</h1>
+
+<div class="wrapper">
+
+	<!-- //departure date -->
+	<h4>Departure date</h4> <input type="date"
+  [min]="todayShort" id="departureTime" [(ngModel)]="departureDate" >
+	<!-- returning flight date -->
+
+	<h4>Returning flight date</h4>
+	<input type="date" id="arrivalTime" [disabled]="" [min]="departureDate" [(ngModel)]="returnDate">
+
+	<br>
+
+	<!-- chosen airport for departure -->
+
+<h4>Airport of Departure</h4>
+    <select name="" id="" [(ngModel)] = "departureAirport">
+      <option [value]="city.key" *ngFor="let city of opts">
+        {{city.key}}
+      </option>
+    </select>
+
+	<!-- chosen destination -->
+<h4>Destination (must be different than departure location)</h4>
+    <select name="" id="" [(ngModel)]="destinationAirport">
+      <ng-container *ngFor="let city of opts">
+      <option [value]="city.key" *ngIf="city.key !== departureAirport" >
+        {{ city.key }}
+      </option>
+      </ng-container>
+    </select>
+
+	<!-- number of passengers (limit of 9) -->
+
+	<h3>Number of passengers</h3>
+	<input type="number" id="passengers" [(ngModel)]="numberOfPassengers">
+
+	<br>
+
+	<button routerLink="/login" [disabled]="numberOfPassengers <= 0 || numberOfPassengers > 9" (click)="saving()">To summary</button>
+</div>
+<router-outlet> </router-outlet>
+<!-- //TODO -->
+<!-- <ul> Do zrobienia:
+  <li>Wybór przylotu nie wcześniejszy niż odlotu</li>
+  <li>Wybór odlotu nie wcześniejszy niż dzień sprawdzenia</li>
+  <li>Miejsce przylotu inne niż odlotu</li>
+  <li>zapisanie ustawień do pamięci podręcznej i usunięcie starych</li>
+  <li>po wygaśnięciu </li>
+  <li>po 3 minutach nieaktywności czyści pamięć i przenosi do strony głównej</li>
+</ul> -->

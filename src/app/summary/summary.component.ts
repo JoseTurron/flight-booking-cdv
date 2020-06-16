@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    this.showStorage = JSON.parse(localStorage.getItem("flightdetails")) || {};
+   }
 
-  ngOnInit(): void {
+   public showStorage;
+
+  ngOnInit() {
   }
 
 }

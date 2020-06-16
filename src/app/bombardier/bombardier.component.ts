@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BombardierComponent implements OnInit {
 
+  public toggleStyle: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  toggleColor() {
+    if (this.toggleStyle) {
+      return "red";
+    } else {
+      return "#CCCCCC";
+    }
+  }
 }
