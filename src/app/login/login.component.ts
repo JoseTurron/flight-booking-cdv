@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { users } from './users';
+import { TimeoutService } from '../timeout.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  providers: [TimeoutService]
 })
 export class LoginComponent implements OnInit {
   public aaa = 'a'
   public comUser = ''
-  constructor(private router: Router) { }
+  constructor(private router: Router,private timeoutService: TimeoutService) { }
 
   ngOnInit() {
+    this.timeoutService.resetTimer();
   }
 
   log(email,password){
@@ -31,12 +34,5 @@ export class LoginComponent implements OnInit {
         this.comUser = 'błędne dane lub uzytkownik nie istnieje'
       }
     }
-
-
-    // if (this.aaa == 'a')
-    // {this.router.navigate(['/details']);}
-    // else {
-    //   this.noUser = "Błędny e-mail lub hasło"
-    // }
   }
 }

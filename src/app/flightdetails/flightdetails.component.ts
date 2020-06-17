@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { TimeoutService } from '../timeout.service';
 
 @Component({
   selector: 'app-flightdetails',
   templateUrl: './flightdetails.component.html',
-  styleUrls: ['./flightdetails.component.scss']
+  styleUrls: ['./flightdetails.component.scss'],
+  providers: [TimeoutService]
 })
 export class FlightdetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private timeoutService: TimeoutService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.timeoutService.resetTimer();
   }
 
 }

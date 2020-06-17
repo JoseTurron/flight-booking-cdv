@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';7
 import { Router, RouterLink } from '@angular/router';
 import { HostListener } from '@angular/core'
+import { TimeoutService } from '../timeout.service';
 
 @Component({
   selector: 'app-chooseflight',
   templateUrl: './chooseflight.component.html',
-  styleUrls: ['./chooseflight.component.scss']
+  styleUrls: ['./chooseflight.component.scss'],
+  providers: [TimeoutService]
 })
 export class ChooseflightComponent implements OnInit {
-  constructor(private router: Router) {
+  constructor(private router: Router, private timeoutService: TimeoutService) {
     this.showStorage = localStorage.getItem("flightdetails") || {};
   }
 
   ngOnInit() {
-    this.resetTimer();
+    this.timeoutService.resetTimer();
   }
   public time: any;
   public numberOfPassengers: number = 1;
@@ -32,19 +34,6 @@ export class ChooseflightComponent implements OnInit {
     { key: "New York", value: ["warsaw, paris,"] }
   ];
 
-  @HostListener('document:mousemove')
-  @HostListener('document:keypress')
-  @HostListener('document:click')
-  @HostListener('document:wheel')
-  resetTimer() {
-    clearTimeout(this.time);
-    this.time = setTimeout(() => {
-    localStorage.removeItem("flightdetails");
-    console.log("Local storage will now be deleted");
-    this.router.navigate(["/chooseflight"]);
-    }, 15000);
-  }
-
   saving() {
     let dataStorage = {
       departureDate: this.departureDate,
@@ -55,14 +44,5 @@ export class ChooseflightComponent implements OnInit {
     };
     localStorage.setItem("flightdetails", JSON.stringify(dataStorage));
     this.showStorage = JSON.parse(localStorage.getItem("flightdetails"));
-  }
-
-  testLocal() {
-    this.saving();
-    console.log(this.showStorage);
-  }
-
-  delete() {
-    localStorage.removeItem("flightdetails");
   }
 }

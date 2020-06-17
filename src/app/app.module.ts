@@ -11,6 +11,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { BombardierComponent } from './bombardier/bombardier.component';
 import { Boeing737Component } from './boeing737/boeing737.component';
 import { Boeing787Component } from './boeing787/boeing787.component';
+import { TimeoutService } from './timeout.service';
 
 const routes: Routes = [
   {path:'', redirectTo:"/chooseflight", pathMatch:"full"},
@@ -39,7 +40,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [TimeoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
