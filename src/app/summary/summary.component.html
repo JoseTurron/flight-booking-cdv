@@ -8,6 +8,10 @@
   <li>Arrival airport: {{ showStorage.arrivalAirport }} </li>
   <li>Number of passengers: {{ showStorage.passengersNumber }} </li>
 </ul>
+Price in PLN: {{ price }} <br>
+<br><button (click)="countEur()">EUR:</button>{{ priceEur }}
+<br><button>PLN:</button>{{ price }}
+<br><button (click)="countUsd()">USD:</button>{{ priceUsd }}
 
 <ul>
   <li>Pokazać się powinna informacja o dotychczas wybranych opcjach lotu </li>

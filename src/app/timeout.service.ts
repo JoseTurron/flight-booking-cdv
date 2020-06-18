@@ -7,8 +7,8 @@ import { HostListener, Injectable} from "@angular/core";
 
 export class TimeoutService {
   constructor(private router: Router) {  }
-;
-  time: number;
+
+  time;
 
   @HostListener('document:mousemove')
   @HostListener('document:keypress')
@@ -18,9 +18,8 @@ export class TimeoutService {
     clearTimeout(this.time);
     this.time = setTimeout(() => {
     localStorage.removeItem("flightdetails");
-    alert("Stop being so passive. Do something!")
-    this.router.navigate(["/chooseflight"]);
-    }, 5000);
+    alert("Due to inactivity, you'll be redirected to main page in 10 seconds");
+    }, 170000);
     this.time = setTimeout(() => {
     localStorage.removeItem("flightdetails");
     console.log("Timeout - deleting local storage and returning to landing page.");
