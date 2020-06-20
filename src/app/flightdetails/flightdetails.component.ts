@@ -9,7 +9,11 @@ import { TimeoutService } from '../timeout.service';
 })
 export class FlightdetailsComponent implements OnInit {
 
-  constructor(private timeoutService: TimeoutService) { }
+  constructor(private timeoutService: TimeoutService) {
+    this.showStorage = localStorage.getItem("flightdetails") || {};
+   }
+
+   public showStorage: any;
 
   ngOnInit() {
     this.timeoutService.resetTimer();

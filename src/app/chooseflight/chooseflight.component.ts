@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';7
 import { Router, RouterLink } from '@angular/router';
-import { HostListener } from '@angular/core'
 import { TimeoutService } from '../timeout.service';
 
 @Component({
@@ -24,14 +23,16 @@ export class ChooseflightComponent implements OnInit {
   public departureAirport: string;
   public destinationAirport: string;
   public showStorage: any;
+  public planeValue1: any;
+  public planeValue2: any;
   public today = new Date();
   public todayShort = new Date().toISOString().slice(0,10);
 
   public cities = ["Warsaw", "Paris", "New York"];
   public opts = [
-    { key: "Warsaw", value: ["paris,new york"] },
-    { key: "Paris", value: ["warsaw,new york"] },
-    { key: "New York", value: ["warsaw, paris,"] }
+    { key: "Warsaw", value: ["paris,new york"], plane: 1 },
+    { key: "Paris", value: ["warsaw,new york"], plane: 2 },
+    { key: "New York", value: ["warsaw, paris,"], plane: 3 }
   ];
 
   saving() {
@@ -44,5 +45,6 @@ export class ChooseflightComponent implements OnInit {
     };
     localStorage.setItem("flightdetails", JSON.stringify(dataStorage));
     this.showStorage = JSON.parse(localStorage.getItem("flightdetails"));
+    console.log(this.planeValue1 + " " + this.planeValue2)
   }
 }

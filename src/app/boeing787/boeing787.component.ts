@@ -9,7 +9,11 @@ import { TimeoutService } from '../timeout.service';
 })
 export class Boeing787Component implements OnInit {
 
-  constructor(private timeoutService: TimeoutService) { }
+  constructor(private timeoutService: TimeoutService) {
+    this.showStorage = localStorage.getItem("flightdetails") || {};
+  }
+
+  public showStorage: any;
 
   ngOnInit() {
     this.timeoutService.resetTimer();

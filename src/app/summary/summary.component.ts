@@ -20,6 +20,8 @@ export class SummaryComponent implements OnInit {
    public priceEur;
    public priceUsd;
 
+   public inputField;
+
    countEur() {
     fetch("https://api.nbp.pl/api/exchangerates/rates/a/eur/?format=json")
     .then((resp) => resp.json())
