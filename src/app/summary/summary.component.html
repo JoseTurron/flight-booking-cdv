@@ -1,4 +1,6 @@
 
+
+
 <h1>Summary</h1>
 
 <ul>
@@ -10,10 +12,11 @@
 
 
 </ul>
-Price in PLN: {{ price }} <br>
+Price in PLN: {{ basePrice }} <br>
 <br><button (click)="countEur()">EUR:</button>{{ priceEur }}
-<br><button>PLN:</button>{{ price }}
 <br><button (click)="countUsd()">USD:</button>{{ priceUsd }}
+<br>
+<button (click)="getConnection()">TEST API</button>
 
 <ul>
   <li>Pokazać się powinna informacja o dotychczas wybranych opcjach lotu </li>

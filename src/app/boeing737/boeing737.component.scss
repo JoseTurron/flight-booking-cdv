@@ -1,0 +1,34 @@
+.occupied {
+  fill: gold;
+}
+
+.free {
+  fill: #9B9B9B;
+}
+
+#seatLetter
+{
+  font-family: 'Lato', sans-serif;
+  -webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 98vh;
+  width: 98vw;
+}
+
+  .seatsChoice {
+display: block;
+flex-direction: column;
+  }
+
+

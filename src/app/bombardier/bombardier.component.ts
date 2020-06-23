@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TimeoutService } from '../timeout.service';
 
-const MAX_SEATS = 9;
-
 @Component({
   selector: 'app-bombardier',
   templateUrl: './bombardier.component.html',
@@ -11,10 +9,9 @@ const MAX_SEATS = 9;
 })
 export class BombardierComponent implements OnInit {
 
-  public toggleStyle: boolean = false;
-  public seatchoice1: any;
-
-  constructor(private timeoutService: TimeoutService) { }
+  constructor(private timeoutService: TimeoutService) {
+    this.showStorage = JSON.parse(localStorage.getItem("flightdetails")) || {};
+   }
 
   ngOnInit() {
     this.timeoutService.resetTimer();
@@ -23,6 +20,8 @@ export class BombardierComponent implements OnInit {
   counter = 0;
   public chosenSeat: any;
   public seatsList = [];
+  public alert = ""
+  public showStorage;
 
   onClick($event) {
 
@@ -38,13 +37,14 @@ export class BombardierComponent implements OnInit {
           const toRemove = this.seatsList.indexOf(this.chosenSeat);
           this.seatsList.splice(toRemove,1);
           this.counter -= 1;
-      } else if (this.counter < MAX_SEATS) {
+      } else if (this.counter < this.showStorage.passengersNumber) {
           seat.removeAttribute("style");
           seat.setAttribute("class", "occupied freeSeat");
           this.seatsList.push(this.chosenSeat)
           this.counter += 1;
-      } else if (this.counter == MAX_SEATS) {
-        alert("You have reached maximum selection of seats.")
+          this.alert = "You need to choose " + (this.showStorage.passengersNumber - this.counter) + " seats." ;
+      } else if (this.counter == this.showStorage.passengersNumber) {
+        this.alert = "You can only choose maximum of {{this.showStorage.passengersNumber}} seats"
       }
       console.log(this.chosenSeat);
       console.log(this.seatsList);

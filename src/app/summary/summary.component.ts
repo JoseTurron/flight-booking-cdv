@@ -14,11 +14,12 @@ export class SummaryComponent implements OnInit {
    }
 
    public showStorage;
-   public price:number = 500;
    public exchangeEur;
+   public departureAPI = "WAW-sky";
    public exchangeUsd;
    public priceEur;
    public priceUsd;
+   public basePrice: number;
 
    public inputField;
 
@@ -28,8 +29,7 @@ export class SummaryComponent implements OnInit {
     .then((data) => {
     let exchangeEur = data.rates[0].mid
     console.log("Exchange rate: " + exchangeEur)
-    console.log(this.price);
-    this.priceEur = (this.price * exchangeEur).toFixed(0)
+    this.priceEur = (this.basePrice * exchangeEur).toFixed(0)
     })
       }
 
@@ -39,26 +39,32 @@ export class SummaryComponent implements OnInit {
     .then((data) => {
     let exchangeUsd = data.rates[0].mid
     console.log("Exchange rate: " + exchangeUsd)
-    console.log(this.price);
-    this.priceUsd = (this.price * exchangeUsd).toFixed(0)
+    this.priceUsd = (this.basePrice * exchangeUsd).toFixed(0)
     })
       }
 
   getConnection() {
-    fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/PL/PLN/en-US/WAW-sky/CDG-sky/2020-09-01?inboundpartialdate=2020-09-09", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-		"x-rapidapi-key": "4ffdf62c6bmshfb49ff445025abep1e2116jsn7d7aae645a00"
-	}
-})
-.then((resp) => resp.json())
-    .then((data) => {
-    console.log(data)
+  fetch(
+    "https://cors-anywhere.herokuapp.com/https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/PL/PLN/en-US/{{ this.departureAPI }}/CDG-sky/2020-08-12?inboundpartialdate=2020-08-23",
+    {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host":
+          "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+        "x-rapidapi-key": "4ffdf62c6bmshfb49ff445025abep1e2116jsn7d7aae645a00",
+      },
+    }
+  )
+    .then((response) => {
+      return response.json();
     })
-.catch(err => {
-  console.log(err);
-});
+    .then((data) => {
+      this.basePrice = data.Quotes[0].MinPrice;
+      console.log(this.basePrice * this.showStorage.passengersNumber)
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 
   }
 

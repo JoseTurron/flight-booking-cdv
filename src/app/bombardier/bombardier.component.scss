@@ -2,6 +2,10 @@
   fill: gold;
 }
 
+body {
+  background-color: #91d9a5;
+}
+
 .free {
   fill: #9B9B9B;
 }
@@ -21,13 +25,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   height: 98vh;
 }
 
   .seatsChoice {
-display: block;
-flex-direction: column;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
   }
 
+.seatsChoiceText {
+  color: blue;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.chosenSeatsText {
+  color: maroon;
+  font-size: 2em;
+  font-weight: bold;
+}
 

@@ -23,7 +23,8 @@ export class ChooseflightComponent implements OnInit {
   public departureAirport: string;
   public destinationAirport: string;
   public showStorage: any;
-  public chosenPlane: string;
+  public departureAPI;
+  public arrivalAPI;
   public today = new Date();
   public todayShort = new Date().toISOString().slice(0,10);
 
@@ -35,13 +36,28 @@ export class ChooseflightComponent implements OnInit {
   ];
 
   saving() {
+    if (this.departureAirport == "Warsaw") {
+      this.departureAPI = "WAW-sky"
+    } else if (this.departureAirport == "Paris") {
+      this.departureAPI = "CDG-sky"
+    } else if (this.departureAirport == "New York") {
+      this.departureAPI = "JFK-sky"
+    }
+    if (this.destinationAirport == "Warsaw") {
+      this.arrivalAPI = "WAW-sky"
+    } else if (this.destinationAirport == "Paris") {
+      this.arrivalAPI = "CDG-sky"
+    } else if (this.destinationAirport == "New York") {
+      this.arrivalAPI = "JFK-sky"
+    }
     let dataStorage = {
       departureDate: this.departureDate,
       returnDate: this.returnDate,
       departureAirport: this.departureAirport,
       arrivalAirport: this.destinationAirport,
       passengersNumber: this.numberOfPassengers,
-      chosenPlane: this.chosenPlane
+      departureAPI: this.departureAPI,
+      arrivalAPI: this.arrivalAPI
     };
     localStorage.setItem("flightdetails", JSON.stringify(dataStorage));
     this.showStorage = JSON.parse(localStorage.getItem("flightdetails"));
