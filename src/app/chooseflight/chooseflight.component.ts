@@ -23,16 +23,15 @@ export class ChooseflightComponent implements OnInit {
   public departureAirport: string;
   public destinationAirport: string;
   public showStorage: any;
-  public planeValue1: any;
-  public planeValue2: any;
+  public chosenPlane: string;
   public today = new Date();
   public todayShort = new Date().toISOString().slice(0,10);
 
   public cities = ["Warsaw", "Paris", "New York"];
   public opts = [
-    { key: "Warsaw", value: ["paris,new york"], plane: 1 },
-    { key: "Paris", value: ["warsaw,new york"], plane: 2 },
-    { key: "New York", value: ["warsaw, paris,"], plane: 3 }
+    { key: "Warsaw", value: ["paris,new york"]},
+    { key: "Paris", value: ["warsaw,new york"]},
+    { key: "New York", value: ["warsaw, paris,"]}
   ];
 
   saving() {
@@ -41,10 +40,10 @@ export class ChooseflightComponent implements OnInit {
       returnDate: this.returnDate,
       departureAirport: this.departureAirport,
       arrivalAirport: this.destinationAirport,
-      passengersNumber: this.numberOfPassengers
+      passengersNumber: this.numberOfPassengers,
+      chosenPlane: this.chosenPlane
     };
     localStorage.setItem("flightdetails", JSON.stringify(dataStorage));
     this.showStorage = JSON.parse(localStorage.getItem("flightdetails"));
-    console.log(this.planeValue1 + " " + this.planeValue2)
   }
 }

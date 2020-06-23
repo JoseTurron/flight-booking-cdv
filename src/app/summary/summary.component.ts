@@ -44,6 +44,24 @@ export class SummaryComponent implements OnInit {
     })
       }
 
+  getConnection() {
+    fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/PL/PLN/en-US/WAW-sky/CDG-sky/2020-09-01?inboundpartialdate=2020-09-09", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+		"x-rapidapi-key": "4ffdf62c6bmshfb49ff445025abep1e2116jsn7d7aae645a00"
+	}
+})
+.then((resp) => resp.json())
+    .then((data) => {
+    console.log(data)
+    })
+.catch(err => {
+  console.log(err);
+});
+
+  }
+
   ngOnInit() {
     this.timeoutService.resetTimer();
   }
