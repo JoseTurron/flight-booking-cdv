@@ -42,32 +42,6 @@ export class SummaryComponent implements OnInit {
     })
       }
 
-  // getConnection() {
-  // fetch(
-  //   `https://cors-anywhere.herokuapp.com/https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/PL/PLN/en-US/${this.showStorage.departureAPI}/${this.showStorage.arrivalAPI}/${this.showStorage.departureDate}?inboundpartialdate=${this.showStorage.returnDate}`,
-  //   {
-  //     method: "GET",
-  //     headers: {
-  //       "x-rapidapi-host":
-  //         "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-  //       "x-rapidapi-key": "4ffdf62c6bmshfb49ff445025abep1e2116jsn7d7aae645a00",
-  //     },
-  //   }
-  // )
-  //   .then((response) => {
-  //     return response.json();
-  //   })
-  //   .then((data) => {
-  //     console.log(data)
-  //     this.basePrice = data.Quotes[0].MinPrice;
-  //     console.log(this.basePrice * this.showStorage.passengersNumber)
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
-
-  // }
-
   ngOnInit() {
     this.timeoutService.resetTimer();
   }
