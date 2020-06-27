@@ -22,7 +22,6 @@ export class BombardierComponent implements OnInit {
   public seatsList = [];
   public alert = ""
   public showStorage;
-  public showSeats;
 
   onClick($event) {
 
@@ -43,14 +42,11 @@ export class BombardierComponent implements OnInit {
           seat.setAttribute("class", "occupied freeSeat");
           this.seatsList.push(this.chosenSeat)
           this.counter += 1;
+          this.alert = "You need to choose " + (this.showStorage.passengersNumber - this.counter) + " seats." ;
       } else if (this.counter == this.showStorage.passengersNumber) {
-        alert(`You are reserving seats for ${this.showStorage.passengersNumber} passengers. If you would like to increase this number, please return to main page and change the reservation`)
+        this.alert = "You can only choose maximum of {{this.showStorage.passengersNumber}} seats"
       }
-
       console.log(this.chosenSeat);
       console.log(this.seatsList);
-
-      localStorage.setItem("chosenSeats", JSON.stringify(this.seatsList));
-
   }
 }
