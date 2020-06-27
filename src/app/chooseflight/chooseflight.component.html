@@ -23,7 +23,7 @@
 
 	<!-- chosen destination -->
 <h4>Destination (must be different than departure location)</h4>
-    <select name="" id="" [(ngModel)]="destinationAirport">
+    <select name="" id="" [(ngModel)]="arrivalAirport">
       <ng-container *ngFor="let city of opts">
       <option [value]="city.key" *ngIf="city.key !== departureAirport">
         {{ city.key }}

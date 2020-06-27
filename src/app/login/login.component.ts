@@ -16,9 +16,12 @@ export class LoginComponent implements OnInit {
    }
 
   public showStorage: any;
+  public connection: number;
+
 
   ngOnInit() {
     this.timeoutService.resetTimer();
+
   }
 
   log(email,password){

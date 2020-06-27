@@ -1,49 +1,108 @@
-.occupied {
-  fill: gold;
-}
+$desktop: "only screen and (max-width: 1920px) and (min-width: 820px)";
+$tablet: "only screen and  (min-width: 545px) and (max-width: 819px)";
+$phone: "only screen and (max-width: 544px)";
 
-body {
-  background-color: #91d9a5;
+// *{
+//   margin:0px;
+//   padding:0px;
+//   border: 0px;
+// }
+
+// body {
+//   background-color: #ffc737;
+// }
+
+// .logoMain {
+//   margin-left: 25px;
+//   width: 250px;
+//   height: auto;
+//   margin-bottom: 50px;
+// }
+
+.occupied {
+  fill: #ffc737;
 }
 
 .free {
-  fill: #9B9B9B;
+  fill: #FFFFFF;
 }
 
-#seatLetter
-{
-  font-family: 'Lato', sans-serif;
-  -webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
+// #seatLetter
+// {
+//   font-family: 'Lato', sans-serif;
+//   -webkit-touch-callout: none;
+// 	-webkit-user-select: none;
+// 	-khtml-user-select: none;
+// 	-moz-user-select: none;
+// 	-ms-user-select: none;
+// 	user-select: none;
+// }
 
-.wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 98vh;
-}
+// p {
+//   margin: 0;
+// }
 
-  .seatsChoice {
-    display: flex;
-    flex-direction: row;
-    margin-top: 20px;
+// // .wrapper {
+// //   display: flex;
+// //   align-items: center;
+// //   justify-content: center;
+// //   flex-direction: column;
+// // }
+
+//   .seatsChoice {
+//     display: flex;
+//     flex-direction: row;
+//     margin-top: 20px;
+//   }
+
+// .seatsChoiceText {
+//   color: #2f384f;
+//   font-family: "Lato";
+//   background-size: cover;
+//   font-size: 2em;
+//   font-weight: bold;
+// }
+
+// .flightInfoCities {
+//   color: #2f384f;
+//   font-family: "Lato";
+//   font-size: 5em;
+//   font-weight: bold;
+// }
+
+// .flightDates {
+//   color: #2f384f;
+//   font-family: "Lato";
+//   font-size: 2em;
+//   font-weight: bold;
+// }
+
+// .chosenSeatsText {
+//   color: #2f384f;
+//   font-family: "Lato";
+//   font-size: 2em;
+//   font-weight: bold;
+// }
+
+// // .planeViewMobile {
+// //   transform: rotate(-90deg);
+// // }
+
+@media #{$desktop}{
+  .planeViewMobile {
+      display: none;
+  }
+}
+@media #{$phone}{
+  .planeViewBig {
+      display: none;
+    }
   }
 
-.seatsChoiceText {
-  color: blue;
-  font-size: 2em;
-  font-weight: bold;
-}
+  @media #{$tablet}{
+    .planeViewMobile {
+        display: none;
+      }
+    }
 
-.chosenSeatsText {
-  color: maroon;
-  font-size: 2em;
-  font-weight: bold;
-}
 

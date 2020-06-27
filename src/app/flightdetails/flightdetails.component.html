@@ -6,6 +6,32 @@
   <li>wybór miejsca, opcji dodatkowych (bagaż i zniżka dla dzieci i seniorów)</li>
 </ul>
 
+<ul>
+  <li>Departure date: {{ showStorage.departureDate }} </li>
+  <li>Returning flight date: {{ showStorage.returnDate }} </li>
+  <li>Departure airport: {{ showStorage.departureAirport }} </li>
+  <li>Arrival airport: {{ showStorage.arrivalAirport }} </li>
+  <li>Number of passengers: {{ showStorage.passengersNumber }} </li>
+  <li>Number of luggage pieces: {{ luggageCounter }} </li>
+  <li>Number of children: {{ childrenCounter }} </li>
+<br>
+Passengers data:
+
+<li *ngFor="let passenger of createRange(showStorage.passengersNumber); let i=index">
+  <input type="text" [(ngModel)]="passengersData[i]" placeholder="Name and surname" required>
+  <!-- <input type="checkbox" (click)="addChild($event)">Child
+  <button (click)="addLuggage()">Add luggage</button>
+  <button (click)="addLuggage()">Remove luggage</button> -->
+  </li>
+
+<!-- <li *ngFor="let passenger of createRange(showStorage.passengersNumber); let i=index">
+<input type="text" [name]="'name_' + 1" [(ngModel)]="passenges.name" placeholder="Name and surname">
+<input type="checkbox" [checked]="passenger.child" (click)="passenger.child = !passenger.child" (click)="checkData()">Child
+<input type="checkbox" [checked]="passenger.luggage" (click)="passenger.luggage = ! passenger.luggage" (click)="checkData()">Luggage
+</li> -->
+
+<button (click)="saveData()">Save to local</button>
+
 <a routerLink="/summary"> to summary </a>
 
 <router-outlet> </router-outlet>
