@@ -25,6 +25,7 @@ export class ChooseflightComponent implements OnInit {
   public showStorage: any;
   public departureAPI;
   public arrivalAPI;
+  public connection = (this.departureAirport + this.destinationAirport)
   public basePrice: number;
   public today = new Date();
   public todayShort = new Date().toISOString().slice(0,10);
@@ -38,7 +39,7 @@ export class ChooseflightComponent implements OnInit {
 
   async getConnection() {
     return fetch(
-      `https://cors-anywhere.herokuapp.com/https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/PL/PLN/en-US/${this.departureAPI}/${this.arrivalAPI}/${this.departureDate}?inboundpartialdate=${this.returnDate}`,
+      `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/PL/PL/en-US/${this.departureAPI}/${this.arrivalAPI}/${this.departureDate}?inboundpartialdate=${this.returnDate}`,
       {
         method: "GET",
         headers: {
@@ -82,7 +83,8 @@ export class ChooseflightComponent implements OnInit {
         passengersNumber: this.numberOfPassengers,
         departureAPI: this.departureAPI,
         arrivalAPI: this.arrivalAPI,
-        basePrice: this.basePrice
+        basePrice: this.basePrice,
+        connection: this.connection
       };
 
       localStorage.setItem("flightdetails", JSON.stringify(dataStorage));
@@ -91,4 +93,5 @@ export class ChooseflightComponent implements OnInit {
       console.log(err);
     }
   }
+
 }
