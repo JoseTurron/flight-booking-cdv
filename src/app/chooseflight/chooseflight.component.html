@@ -66,8 +66,9 @@
     </div>
 
     <div class="div2"> </div>
-    <div class="div3"> </div>
-
+    <div class="div3">
+      <h6>Project author: Krzysztof Rapacz || stock images source: www.freepik.com</h6>
+    </div>
     <div class="div4">
       <h1 class="copy_main">We operate on the highest levels!</h1>
     </div>
@@ -75,8 +76,8 @@
     <div class="div5"></div>
 
     <div class="div6">
-      <h4>Fly from:</h4>
-      <select name="" id="" [(ngModel)] = "departureAirport">
+      <h2>FROM:</h2>
+      <select class="input" name="" id="" [(ngModel)] = "departureAirport">
         <option [value]="city.key" *ngFor="let city of opts">
           {{city.key}}
         </option>
@@ -84,8 +85,8 @@
     </div>
 
     <div class="div7">
-      <h4>Fly to:</h4>
-      <select name="" id="" [(ngModel)]="destinationAirport">
+      <h2>TO:</h2>
+      <select class="input" name="" id="" [(ngModel)]="destinationAirport">
         <ng-container *ngFor="let city of opts">
         <option [value]="city.key" *ngIf="city.key !== departureAirport">
           {{ city.key }}
@@ -94,23 +95,23 @@
       </select>
     </div>
     <div class="div8">
-      <h4>Departure date</h4> <input type="date"
-      [min]="todayShort" id="departureTime" [(ngModel)]="departureDate">
+      <h3>Departure date</h3> <input type="date"
+      [min]="todayShort" class="input" id="departureTime" [(ngModel)]="departureDate">
     </div>
     <div class="div9">
-      <h4>Returning flight date</h4>
-      <input type="date" id="arrivalTime" [disabled]="" [min]="departureDate" [(ngModel)]="returnDate">
+      <h3>Returning flight date</h3>
+      <input type="date" id="arrivalTime" class="input" [disabled]="" [min]="departureDate" [(ngModel)]="returnDate">
     </div>
     <div class="div10">
       <h3>Number of passengers</h3>
-      <input type="number" id="passengers" [(ngModel)]="numberOfPassengers">
+      <input type="number" class="input" [(ngModel)]="numberOfPassengers">
     </div>
     <div class="div11">
       <h3>Children</h3>
-      <input type="number" id="children" [(ngModel)]="numberOfPassengers">
+      <input type="number" class="input" [(ngModel)]="numberOfChildren">
     </div>
     <div class="div12">
-      <button routerLink="/login" [disabled]="numberOfPassengers <= 0 || numberOfPassengers > 9" (click)="saving()">Fly!</button>
+    <button class="buttonMain" routerLink="/login" [disabled]="(numberOfPassengers <= 0 || numberOfPassengers > 9) || (numberOfChildren <= -1 || numberOfChildren > 4)" (click)="saving()">{{ buttonText }} </button>
     </div>
     <div class="div13">
       <h1>Choose your next sky adventure!</h1>
