@@ -1,0 +1,56 @@
+.parent {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(6, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+background: url("https://i.ibb.co/VmVkfPd/login-background2.png");
+height: 100vh;
+}
+
+.div1 { grid-area: 1 / 1 / 2 / 4;
+// background-color: white;
+margin-bottom: 3%;  }
+.div2 { grid-area: 6 / 1 / 7 / 4; }
+.div3 { 
+  grid-area: 2 / 2 / 6 / 3;
+  background-color: rgba(255, 255, 255, 0.678);
+  -webkit-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+  box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+  border-radius: 25px;  
+  background-color: #fac421;
+  }
+.div4 { grid-area: 2 / 2 / 3 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #564fb5;
+  border-radius: 25px 25px 0 0;
+  font-size: 2em;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+   }
+.div5 { grid-area: 3 / 2 / 4 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+.div6 { grid-area: 4 / 2 / 5 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+.div7 { grid-area: 5 / 2 / 6 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+@media only screen and (max-width: 700px) {
+  .parent {
+  grid-template-columns: 15vw 70vw 15vw;
+  }
+}

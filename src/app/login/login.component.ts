@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { users } from './users';
 import { TimeoutService } from '../timeout.service';
+import { ConnectionService} from '../connection.service'
 
 @Component({
   selector: 'app-login',
@@ -11,13 +12,18 @@ import { TimeoutService } from '../timeout.service';
 })
 export class LoginComponent implements OnInit {
   public comUser = ''
-  constructor(private router: Router,private timeoutService: TimeoutService) {
+  constructor(private router: Router,private timeoutService: TimeoutService, private connectionService: ConnectionService) {
     this.showStorage = JSON.parse(localStorage.getItem("flightdetails")) || {};
    }
 
   public showStorage: any;
+  public connectionData;
+  public connection;
 
   ngOnInit() {
+    this.connectionService.getConnectionDetails().subscribe((result) => {
+      console.log("result",result);
+    })
     this.timeoutService.resetTimer();
   }
 
