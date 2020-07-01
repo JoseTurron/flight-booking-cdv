@@ -1,10 +1,25 @@
-<h1>Szczegóły lotu</h1>
+
+<h1>Summary</h1>
 
 <ul>
-  <li>Pokazać się powinna informacja o dotychczas wybranych opcjach lotu </li>
-  <li>w zależności od lotu - generowany jest odpowiedni samolot</li>
-  <li>wybór miejsca, opcji dodatkowych (bagaż i zniżka dla dzieci i seniorów)</li>
+  <li>Departure date: {{ showStorage.departureDate }} </li>
+  <li>Returning flight date: {{ showStorage.returnDate }} </li>
+  <li>Departure airport: {{ showStorage.departureAirport }} </li>
+  <li>Arrival airport: {{ showStorage.arrivalAirport }} </li>
+  <li>Number of passengers: {{ showStorage.passengersNumber }} </li>
+<br>
+Passengers data:
+
+<li *ngFor="let passenger of createRange(showStorage.passengersNumber); let i=index">
+<input type="text" [(ngModel)]="passengersData[i]" placeholder="Name and surname">
+<!-- <input type="checkbox" [checked]="addChild()">Child
+  <button (click)="addLuggage()">Add luggage</button>
+  <button (click)="addLuggage()">Remove luggage</button> -->
+</li>
+
 </ul>
+
+<button (click)="saveData()">Save to local</button>
 
 <a routerLink="/summary"> to summary </a>
 

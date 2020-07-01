@@ -12,6 +12,8 @@ import { BombardierComponent } from './bombardier/bombardier.component';
 import { Boeing737Component } from './boeing737/boeing737.component';
 import { Boeing787Component } from './boeing787/boeing787.component';
 import { TimeoutService } from './timeout.service';
+import { ConnectionService} from './connection.service'
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {path:'', redirectTo:"/chooseflight", pathMatch:"full"},
@@ -38,9 +40,10 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
-  providers: [TimeoutService],
+  providers: [TimeoutService, ConnectionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

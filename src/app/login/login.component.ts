@@ -17,8 +17,6 @@ export class LoginComponent implements OnInit {
    }
 
   public showStorage: any;
-  public connectionData;
-  public connection;
 
   ngOnInit() {
     this.connectionService.getConnectionDetails().subscribe((result) => {
@@ -33,8 +31,9 @@ export class LoginComponent implements OnInit {
 
     for (let i=0;i<users.length;i++){
       if (users[i].email == email.value.toLowerCase() && users[i].password == password.value){
-        console.log("istnieje uzytkownik");
-        this.comUser = "znaleziono uzytkownika, za chwilkę nastąpi przekierowanie"
+        console.log("User Found");
+        this.comUser = "User found - redirecting in progress..."
+
         if ((this.showStorage.departureAirport == "Warsaw" && this.showStorage.arrivalAirport == "Paris") || (this.showStorage.departureAirport == "Paris" && this.showStorage.arrivalAirport == "Warsaw")) {
           this.router.navigate(['/bombardier']);
         }
@@ -44,6 +43,7 @@ export class LoginComponent implements OnInit {
 
         else if ((this.showStorage.departureAirport == "Paris" && this.showStorage.arrivalAirport == "New York") || (this.showStorage.departureAirport == "New York" && this.showStorage.arrivalAirport == "Paris")) {
           this.router.navigate(['/boeing737']);
+
         } else {
           this.router.navigate(['/flightdetails']);
         }

@@ -27,7 +27,7 @@ export class ChooseflightComponent implements OnInit {
   public showStorage: any;
   public departureAPI;
   public arrivalAPI;
-  public connection = (this.departureAirport + this.destinationAirport)
+  public connection;
   public basePrice: number;
   public today = new Date();
   public todayShort = new Date().toISOString().slice(0,10);
@@ -41,7 +41,7 @@ export class ChooseflightComponent implements OnInit {
 
   async getConnection() {
     return fetch(
-      `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/PL/PL/en-US/${this.departureAPI}/${this.arrivalAPI}/${this.departureDate}?inboundpartialdate=${this.returnDate}`,
+      `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/PL/PLN/en-US/${this.departureAPI}/${this.arrivalAPI}/${this.departureDate}?inboundpartialdate=${this.returnDate}`,
       {
         method: "GET",
         headers: {
@@ -59,6 +59,8 @@ export class ChooseflightComponent implements OnInit {
   }
 
   async saving() {
+    localStorage.removeItem("flightdetails");
+    this.connection = this.departureAirport + this.destinationAirport
     if (this.departureAirport == "Warsaw") {
       this.departureAPI = "WAW-sky";
     } else if (this.departureAirport == "Paris") {
@@ -86,7 +88,8 @@ export class ChooseflightComponent implements OnInit {
         departureAPI: this.departureAPI,
         arrivalAPI: this.arrivalAPI,
         basePrice: this.basePrice,
-        connection: this.connection
+        connection: this.connection,
+        children: this.numberOfChildren
       };
 
       localStorage.setItem("flightdetails", JSON.stringify(dataStorage));
