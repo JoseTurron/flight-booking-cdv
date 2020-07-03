@@ -10,9 +10,20 @@
   <li>Arrival airport: {{ showStorage.arrivalAirport }} </li>
   <li>Number of passengers: {{ showStorage.passengersNumber }} </li>
 
+  <br>
+
+  <div *ngFor="let passenger of passengers; let i=index">
+    <br>
+{{ passengers[i].child ? 'Child' : "" }}<br>
+Name: {{ passengers[i].name }}<br>
+Seat: {{ seats[i]}}<br>
+Extra luggage: {{ passengers[i].luggage ? 'Yes' : 'No' }}<br>
+</div>
+
+FINAL PRICE: {{ finalPrice }} {{ basePrice }}
 
 </ul>
-Price in PLN: {{ showStorage.basePrice }} <br>
+Price in PLN: {{ showStorage.basePrice.__zone_symbol__value }} <br>
 <br><button (click)="countEur()">EUR:</button>{{ priceEur }}
 <br><button (click)="countUsd()">USD:</button>{{ priceUsd }}
 <br>

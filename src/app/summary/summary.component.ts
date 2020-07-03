@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TimeoutService } from '../timeout.service';
+import { luggageBombardier} from '../prices'
 
 @Component({
   selector: 'app-summary',
@@ -11,6 +12,9 @@ export class SummaryComponent implements OnInit {
 
   constructor(private timeoutService: TimeoutService) {
     this.showStorage = JSON.parse(localStorage.getItem("flightdetails")) || {};
+    this.basePrice = this.showStorage.basePrice.__zone_symbol__value;
+    this.seats = JSON.parse(localStorage.getItem("chosenSeats")) || {};
+    this.passengers = JSON.parse(localStorage.getItem("passengers")) || {};
    }
 
    public showStorage;
@@ -18,11 +22,16 @@ export class SummaryComponent implements OnInit {
    public exchangeUsd;
    public priceEur;
    public priceUsd;
+   public luggagePrice: number;
+   public passengers: any[];
+   public finalPrice: number;
+   public seats: any[];
    public basePrice: number;
 
    public inputField;
 
    countEur() {
+    console.log(this.passengers[2].child)
     fetch("https://api.nbp.pl/api/exchangerates/rates/a/eur/?format=json")
     .then((resp) => resp.json())
     .then((data) => {
@@ -42,34 +51,13 @@ export class SummaryComponent implements OnInit {
     })
       }
 
-  // getConnection() {
-  // fetch(
-  //   `https://cors-anywhere.herokuapp.com/https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/PL/PLN/en-US/${this.showStorage.departureAPI}/${this.showStorage.arrivalAPI}/${this.showStorage.departureDate}?inboundpartialdate=${this.showStorage.returnDate}`,
-  //   {
-  //     method: "GET",
-  //     headers: {
-  //       "x-rapidapi-host":
-  //         "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-  //       "x-rapidapi-key": "4ffdf62c6bmshfb49ff445025abep1e2116jsn7d7aae645a00",
-  //     },
-  //   }
-  // )
-  //   .then((response) => {
-  //     return response.json();
-  //   })
-  //   .then((data) => {
-  //     console.log(data)
-  //     this.basePrice = data.Quotes[0].MinPrice;
-  //     console.log(this.basePrice * this.showStorage.passengersNumber)
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
-
-  // }
-
   ngOnInit() {
     this.timeoutService.resetTimer();
+    if (this.showStorage.chosenPlane == "bombardier") {
+      this.luggagePrice = luggageBombardier;
+    }
+
+    this.finalPrice = (this.basePrice * this.showStorage.passengersNumer) + (this.showStorage.passengersNumer * this.luggagePrice)
   }
 
 }

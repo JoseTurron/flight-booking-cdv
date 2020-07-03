@@ -2,25 +2,23 @@
 <h1>Summary</h1>
 
 <ul>
-  <li>Departure date: {{ showStorage.departureDate }} </li>
-  <li>Returning flight date: {{ showStorage.returnDate }} </li>
+  <li>Departure date: {{ showStorage.departureDate | date: 'fullDate' }} </li>
+  <li>Returning flight date: {{ showStorage.returnDate | date: 'fullDate' }} </li>
   <li>Departure airport: {{ showStorage.departureAirport }} </li>
   <li>Arrival airport: {{ showStorage.arrivalAirport }} </li>
   <li>Number of passengers: {{ showStorage.passengersNumber }} </li>
 <br>
 Passengers data:
 
-<li *ngFor="let passenger of createRange(showStorage.passengersNumber); let i=index">
-<input type="text" [(ngModel)]="passengersData[i]" placeholder="Name and surname">
-<!-- <input type="checkbox" [checked]="addChild()">Child
-  <button (click)="addLuggage()">Add luggage</button>
-  <button (click)="addLuggage()">Remove luggage</button> -->
-</li>
+<div *ngFor="let passenger of passengers; let i=index">
+  <p>Chosen seat: {{ chosenSeats[i] }}</p><input type="text" [name]="'name_' + 1" [(ngModel)]="passenger.name" placeholder="Name and surname"><br>
+  <input type="checkbox" [checked]="passenger.child" (change)="passenger.child = !passenger.child">Child
+  <input type="checkbox" [checked]="passenger.luggage" (change)="passenger.luggage = ! passenger.luggage">Luggage
+</div>
 
-</ul>
+<br>
+<button routerLink="/summary" (click)="saveData()">Go to summary</button>
 
-<button (click)="saveData()">Save to local</button>
-
-<a routerLink="/summary"> to summary </a>
+<br>
 
 <router-outlet> </router-outlet>

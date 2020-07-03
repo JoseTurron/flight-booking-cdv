@@ -17,15 +17,38 @@ export class LoginComponent implements OnInit {
    }
 
   public showStorage: any;
+  public basePrice;
+  public existingData = localStorage.getItem("flightdetails")
 
   ngOnInit() {
     this.connectionService.getConnectionDetails().subscribe((result) => {
       console.log("result",result);
     })
     this.timeoutService.resetTimer();
+
+    this.basePrice = fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/PL/PLN/en-US/${this.showStorage.departureAPI}/${this.showStorage.arrivalAPI}/${this.showStorage.departureDate}?inboundpartialdate=${this.showStorage.returnDate}`,
+        {
+          method: "GET",
+          headers: {
+            "x-rapidapi-host":
+              "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+            "x-rapidapi-key": "4ffdf62c6bmshfb49ff445025abep1e2116jsn7d7aae645a00"
+          }
+        }
+      )
+        .then(response => response.json())
+        .then(data => data.Quotes[0].MinPrice)
+        .catch(err => {
+          console.log(err);
+        });
   }
 
   log(email,password){
+    this.existingData = this.existingData ? JSON.parse(this.existingData) : {};
+    this.existingData["basePrice"] = this.basePrice;
+    localStorage.setItem("flightdetails", JSON.stringify(this.existingData))
+    console.log("This existing data: ", this.existingData)
+
     console.log(email.value.toLowerCase())
     console.log(password.value)
 

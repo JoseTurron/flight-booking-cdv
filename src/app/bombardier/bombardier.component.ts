@@ -20,8 +20,10 @@ export class BombardierComponent implements OnInit {
   counter = 0;
   public chosenSeat: any;
   public seatsList = [];
-  public alert = ""
   public showStorage;
+  public chosenPlane = "bombardier";
+  public alert = "";
+  public existingData = localStorage.getItem("flightdetails")
 
   onClick($event) {
 
@@ -50,5 +52,11 @@ export class BombardierComponent implements OnInit {
       console.log(this.seatsList);
 
       localStorage.setItem("chosenSeats", JSON.stringify(this.seatsList));
+  }
+
+  saveData() {
+    this.existingData = this.existingData ? JSON.parse(this.existingData) : {};
+    this.existingData["chosenPlane"] = this.chosenPlane;
+    localStorage.setItem("flightdetails", JSON.stringify(this.existingData))
   }
 }
