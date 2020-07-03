@@ -13,7 +13,7 @@ Passengers data:
 <div *ngFor="let passenger of passengers; let i=index">
   <p>Chosen seat: {{ chosenSeats[i] }}</p><input type="text" [name]="'name_' + 1" [(ngModel)]="passenger.name" placeholder="Name and surname"><br>
   <input type="checkbox" [checked]="passenger.child" (change)="passenger.child = !passenger.child">Child
-  <input type="checkbox" [checked]="passenger.luggage" (change)="passenger.luggage = ! passenger.luggage">Luggage
+  <input type="checkbox" [checked]="passenger.luggage" (change)="passenger.luggage = !passenger.luggage">Luggage
 </div>
 
 <br>

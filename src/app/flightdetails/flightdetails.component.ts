@@ -25,6 +25,12 @@ export class FlightdetailsComponent implements OnInit {
 
   luggageAdd() {
     this.luggageCounter++
+    console.log(this.luggageCounter)
+  }
+
+  luggageRemove() {
+    this.luggageCounter--
+    console.log(this.luggageCounter)
   }
 
   saveData() {
