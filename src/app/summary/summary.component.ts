@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TimeoutService } from '../timeout.service';
 import { luggageBombardier, luggageBoeing737, luggageBoeing787, childrenDiscountBombardier, childrenDiscountBoeing737, childrenDiscountBoeing787} from '../prices'
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-summary',
@@ -26,6 +25,7 @@ export class SummaryComponent implements OnInit {
    public currency: string = "PLN";
 
    public passengers: any[];
+    public chosenSeats: any;
    public adults: number;
    public seats: any[];
 
@@ -56,7 +56,6 @@ export class SummaryComponent implements OnInit {
     .then((resp) => resp.json())
     .then((data) => {
     let exchangeUsd = data.rates[0].mid
-    console.log("Exchange rate: " + exchangeUsd)
     this.finalPrice = (this.finalPriceOrigin / exchangeUsd)
     this.currency = "USD"
     })

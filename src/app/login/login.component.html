@@ -4,17 +4,22 @@
 <div class="div1">
       <img class="logo" src="https://i.ibb.co/StCPyT5/logo3.png">
 </div>
-<div class="div2"> .;</div>
+<div class="div2"> </div>
 <div class="div3"> </div>
-<div class="div4"> SIGN IN</div>
+<div class="div4">
+<h2>{{ alert }}</h2>
+<p class="alert">{{ comUser }}</p>
+</div>
 <div class="div5">
-<input type="text" placeholder="e-mail" #email>
+<h2>LOGIN</h2>
+<input class="input" type="text" placeholder="e-mail" #email>
 </div>
 <div class="div6">
-<input class="input" type="text" placeholder="hasło" #password>
+<h2>PASSWORD</h2>
+<input class="input" type="password" placeholder="hasło" #password>
 </div>
 <div class="div7">
-<button (click)="log(email, password)">Zaloguj się </button></div>
+<button class="buttonMain" (click)="log(email, password)">Login</button></div>
 
 </div>
 

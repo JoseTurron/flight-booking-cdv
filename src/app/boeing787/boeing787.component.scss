@@ -1,0 +1,225 @@
+@import "../partials/colors";
+
+.occupied {
+  fill: $mainOrange;
+}
+
+.free {
+  fill: white;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 12vh 15vh 4vh repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 100vh;
+  background-color: $secondaryPurple;
+  font-family: 'Lato', sans-serif;
+  }
+
+  .div1 {
+  grid-area: 1 / 1 / 2 / 7;
+  background-color: white;
+  font-size: 4vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-flow: wrap;
+  padding-right: 10vw;
+  img {
+    height: 10vh;
+  }
+ }
+
+ .departures {
+   grid-area: 1 / 5 / 2 / 7;
+   display: inline-block;
+   align-items: center;
+   justify-content: right;
+   margin-bottom: 5%;
+   .dates {
+    font-size: 2vh;
+    padding-top: 1%;
+    padding-left: 5px;
+    padding-bottom: 1%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    background-color: $mainOrange;
+    -webkit-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+    -moz-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+    box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+    }
+  }
+
+  .div2 {
+    grid-area: 2 / 1 / 3 / 4;
+    background-color: $mainOrange;
+    margin: 2vh 2vw 2vh 1vw;
+    border-radius: 25px 0px 0px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 2vh;
+    -webkit-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+    -moz-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+    box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+    img {
+      height: 6vh;
+    }
+
+  }
+
+  .div3 {
+    grid-area: 2 / 4 / 3 / 7;
+    background-color: $mainOrange;
+    margin: 2vh 2vw 2vh 1vw;
+    border-radius: 0px 25px 25px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 2vh;
+    -webkit-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+    -moz-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+    box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+    img {
+      height: 6vh;
+
+    }
+    .dates {
+      display: block;
+      font-size: 2vh;
+    }
+  }
+
+  .div4 {
+    grid-area: 3 / 1 / 3 / 7;
+    font-size: 1.9vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: $secondaryPurple;
+    height: 2vh;
+    color: white;
+    .seats {
+      color:$mainOrange;
+      padding-left: 3px;
+      padding-right: 3px;
+      background-color: $secondaryPurple;
+      font-size: 2vh;
+    }
+  }
+
+  .planeDiv {
+    grid-area: 4 / 1 / 6 / 7;
+    padding-top: 1.5%;
+    background-color: white;
+    -webkit-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+    -moz-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+    box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+    display: block;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    h1 {
+      display: flex;
+      justify-content: center;
+    }
+   }
+
+  .div6 {
+    grid-area: 6 / 1 / 7 / 7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 3vh;
+    color: white;
+    .seatslist {
+      color: $mainOrange;
+    }
+    .chosenseats {
+      margin-right: 10%;
+    }
+   }
+
+   .buttonMain {
+    width: 15vw;
+    padding: 0.5% 0% 0.5% 0%;
+    border-radius: 30px 30px 30px 30px;
+    font-family: 'Lato', sans-serif;
+    background-color: $mainOrange;
+    font-size: 0.7em;
+    font-weight: bold;
+    -webkit-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+    -moz-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+    box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+
+  .buttonMain:hover {
+    background-color: white;
+  }
+}
+
+@media only screen and (min-width: 1367px) {
+}
+
+@media only screen and (max-width: 1366px) and (min-width: 820px) {
+  .div1 {
+    .img {
+      height: 4vh;
+    }
+  }
+  .planeDiv {
+    padding-top: 0.8%;
+  }
+}
+
+@media only screen and  (min-width: 545px) and (max-width: 819px) {
+  .departures {
+    .dates {
+      font-size: 1.5vh;
+      padding-top: 1%;
+  }
+  }
+}
+
+@media only screen and (max-width: 544px) {
+  .div1 {
+    .img {
+      height: 0.5vh;
+    }
+  }
+  .departures{
+    .dates {
+      margin-top: 1.3vh;
+      font-size: 1.3vh;
+      padding-top: 1%;
+  }
+  }
+  .buttonMain {
+    width: 80vw;
+    height: 5vh;
+  }
+
+  .parent {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 12vh 15vh 4vh 8vh repeat(2, 0.45fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 100vh;
+  background-color: $secondaryPurple;
+  font-family: 'Lato', sans-serif;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+}

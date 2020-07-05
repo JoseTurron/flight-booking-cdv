@@ -12,17 +12,20 @@ const MAX_SEATS = 9;
 export class Boeing737Component implements OnInit {
 
   constructor(private timeoutService: TimeoutService) {
-    this.showStorage = localStorage.getItem("flightdetails") || {};
+    this.showStorage = JSON.parse(localStorage.getItem("flightdetails")) || {};
    }
-
-   public showStorage: any;
 
   ngOnInit() {
     this.timeoutService.resetTimer();
   }
+
   counter = 0;
   public chosenSeat: any;
   public seatsList = [];
+  public showStorage;
+  public chosenPlane = "boeing737";
+  public alert = "";
+  public existingData = localStorage.getItem("flightdetails")
 
   onClick($event) {
 
@@ -38,15 +41,24 @@ export class Boeing737Component implements OnInit {
           const toRemove = this.seatsList.indexOf(this.chosenSeat);
           this.seatsList.splice(toRemove,1);
           this.counter -= 1;
-      } else if (this.counter < MAX_SEATS) {
+      } else if (this.counter < this.showStorage.passengersNumber) {
           seat.removeAttribute("style");
           seat.setAttribute("class", "occupied freeSeat");
           this.seatsList.push(this.chosenSeat)
           this.counter += 1;
-      } else if (this.counter == MAX_SEATS) {
-        alert("You have reached maximum selection of seats.")
+          this.alert = "You need to choose " + (this.showStorage.passengersNumber - this.counter) + " seats." ;
+      } else if (this.counter == this.showStorage.passengersNumber) {
+        alert(`You are reserving seats for ${this.showStorage.passengersNumber} passengers. If you would like to increase this number, please return to main page and change the reservation`)
       }
       console.log(this.chosenSeat);
       console.log(this.seatsList);
+
+      localStorage.setItem("chosenSeats", JSON.stringify(this.seatsList));
+  }
+
+  saveData() {
+    this.existingData = this.existingData ? JSON.parse(this.existingData) : {};
+    this.existingData["chosenPlane"] = this.chosenPlane;
+    localStorage.setItem("flightdetails", JSON.stringify(this.existingData))
   }
 }

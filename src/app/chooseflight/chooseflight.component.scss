@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import "../partials/colors";
+
 
 .parent {
   display: grid;
@@ -33,7 +35,6 @@
 .div4 {
   grid-area: 3 / 4 / 8 / 7;
   display: flex;
-  // align-items: center;
   font-family: "Lato", sans-serif;
   font-size: 2em;
   padding-right: 20vw;
@@ -176,12 +177,11 @@
     padding: 3% 0% 3% 0%;
     border-radius: 40px 40px 40px 40px;
     font-family: 'Lato', sans-serif;
-    background-color: #d3dbfe;
+    background-color: $buttonColor;
     font-size: 2em;
     font-weight: bold;
   }
-
-  .buttonMain:hover {
+    .buttonMain:hover {
     background-color: #fac421;
   }
 }
@@ -200,10 +200,69 @@
   color: white;
 }
 
-@media only screen and (max-width: 600px) {
+
+@media only screen and (max-width: 1366px) and (min-width: 820px) {
+  .div1 {
+    img {
+      height: 12vh;
+    }
+  }
   .parent {
-    background: url("https://i.ibb.co/hMtJDnh/background-website-mobile.png");
-    background-size: cover;
+    background: url("https://i.ibb.co/yNL5XvX/background-website-768.png");
+    height: 100vh;
+    overflow-y: hidden;
+  }
+    .input {
+    width: 80%;
+    text-align: center;
+    padding: 2% 0% 2% 0%;
+    font-family: 'Lato', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    border: solid 1px rgba(86, 79, 181, 0.5);
+  }
+}
+
+@media only screen and (min-width: 545px) and (max-width: 819px) {
+  .parent {
+    background: url("https://i.ibb.co/zfh4YVf/background-website-mobile.png");
+    grid-template-columns: 10vw 27.5vw 27.5vw 10vw;
+    padding-left: 12vw;
+    height: 100vh;
+  }
+
+  .div4 {
+    display: none;
+  }
+
+  .div5 {
+    padding-left: 15%;
+  }
+
+    .input {
+    width: 80%;
+    text-align: center;
+    padding: 2% 0% 2% 0%;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.6em;
+    font-weight: bold;
+    border: solid 1px rgba(86, 79, 181, 0.5);
+  }
+
+  .div13 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1 {
+      font-size: 2.5vh;
+    }
+  }
+}
+
+@media only screen and (max-width: 544px) {
+
+  .parent {
+    background: url("https://i.ibb.co/zfh4YVf/background-website-mobile.png")
   }
   .div4 {
     display: none;
@@ -225,7 +284,7 @@
     text-align: center;
     padding: 2% 0% 2% 0%;
     font-family: 'Lato', sans-serif;
-    font-size: 0.9em;
+    font-size: 0.75em;
     font-weight: bold;
     border: solid 1px rgba(86, 79, 181, 0.5);
   }
@@ -235,8 +294,43 @@
   }
 
   .div13 {
-    padding: 0 25% 0 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1 {
+      font-size: 3.7vh;
+    }
+  }
+
+  .div8 {
+    h3 {
+      font-size: 2vh;
+    }
+
+  .div9 {
+    h3 {
+      font-size: 2.2vh;
+    }
+  }
+
+  .div10 {
+    h3 {
+      font-size: 2vh;
+    }
+  }
+
+  }
+    .div1 {    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 70vw;
+
+    }
   }
 }
+
+
 
 

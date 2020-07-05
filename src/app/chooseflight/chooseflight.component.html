@@ -9,7 +9,7 @@
       <h6>Project author: Krzysztof Rapacz || stock images source: www.freepik.com</h6>
     </div>
     <div class="div4">
-      <h1 class="copy_main">We will always give you the highest level!</h1>
+      <h1 class="copy_main">The highest level of travelling</h1>
     </div>
 
     <div class="div5"></div>
@@ -34,15 +34,16 @@
       </select>
     </div>
     <div class="div8">
-      <h3>Departure date</h3> <input type="date"
+      <h3>Departure</h3> 
+      <input type="date"
       [min]="todayShort" class="input" id="departureTime" [(ngModel)]="departureDate">
     </div>
     <div class="div9">
-      <h3>Returning flight date</h3>
+      <h3>Return</h3>
       <input type="date" id="arrivalTime" class="input" [disabled]="" [min]="departureDate" [(ngModel)]="returnDate">
     </div>
     <div class="div10">
-      <h3>Number of passengers</h3>
+      <h3>Passengers</h3>
       <input type="number" class="input" [(ngModel)]="numberOfPassengers">
     </div>
     <div class="div11">
@@ -53,7 +54,7 @@
     <button class="buttonMain" routerLink="/login" [disabled]="(numberOfPassengers <= 0 || numberOfPassengers > 9) || (numberOfChildren <= -1 || numberOfChildren > 4)" (click)="saving()">{{ buttonText }} </button>
     </div>
     <div class="div13">
-      <h1>Choose your next sky adventure!</h1>
+      <h1>Choose your flight!</h1>
     </div>
     </div>
 

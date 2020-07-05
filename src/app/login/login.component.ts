@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { users } from './users';
 import { TimeoutService } from '../timeout.service';
-import { ConnectionService} from '../connection.service'
+import { ConnectionService} from '../connection.service';
+import { DOCUMENT } from "@angular/common";
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,14 @@ import { ConnectionService} from '../connection.service'
 })
 export class LoginComponent implements OnInit {
   public comUser = ''
-  constructor(private router: Router,private timeoutService: TimeoutService, private connectionService: ConnectionService) {
+  constructor(@Inject(DOCUMENT) private document: Document, private router: Router,private timeoutService: TimeoutService, private connectionService: ConnectionService) {
     this.showStorage = JSON.parse(localStorage.getItem("flightdetails")) || {};
    }
 
   public showStorage: any;
   public basePrice;
+  public alert: string = "SIGN IN";
+  public alertSign: string = "";
   public existingData = localStorage.getItem("flightdetails")
 
   ngOnInit() {
@@ -50,7 +53,7 @@ export class LoginComponent implements OnInit {
     console.log("This existing data: ", this.existingData)
 
     console.log(email.value.toLowerCase())
-    console.log(password.value)
+    console.log(password.valueqdd)
 
     for (let i=0;i<users.length;i++){
       if (users[i].email == email.value.toLowerCase() && users[i].password == password.value){
@@ -74,7 +77,9 @@ export class LoginComponent implements OnInit {
 
       }
       else{
-        this.comUser = 'błędne dane lub uzytkownik nie istnieje'
+        this.comUser = 'reloading page in 3 seconds'
+        this.alert = "WRONG LOGIN OR PASSWORD"
+        setTimeout(function() {  this.document.location.reload(); },4000);
       }
     }
   }

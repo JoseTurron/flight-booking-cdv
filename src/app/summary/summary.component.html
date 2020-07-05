@@ -1,30 +1,41 @@
 
+<div class="parent">
+
+<div class="div1"> 
+<a routerLink="/chooseflight"><img class="logo" src="https://i.ibb.co/StCPyT5/logo3.png"></a>
+</div>
+
+<div class="div2">
+  <li><p class="travelInfo">Departure airport:</p><p class="travelInfoStorage"> {{ showStorage.departureAirport }}</p> </li>
+  <li><p class="travelInfo">Departure date:</p><p class="travelInfoStorage">{{ showStorage.departureDate | date: 'fullDate' }} </p></li>
+  <li><p class="travelInfo">Arrival airport:</p><p class="travelInfoStorage"> {{ showStorage.arrivalAirport }} </p></li>
+  <li><p class="travelInfo">Returning flight date:</p>
+  <p class="travelInfoStorage">{{ showStorage.returnDate | date: 'fullDate' }}
+  </p></li>
 
 
-<h1>Summary</h1>
+</div>
 
-<ul>
-  <li>Departure date: {{ showStorage.departureDate | date: 'fullDate' }} </li>
-  <li>Returning flight date: {{ showStorage.returnDate | date: 'fullDate' }} </li>
-  <li>Departure airport: {{ showStorage.departureAirport }} </li>
-  <li>Arrival airport: {{ showStorage.arrivalAirport }} </li>
-  <li>Number of passengers: {{ showStorage.passengersNumber }} </li>
-
-  <br>
-
-  <div *ngFor="let passenger of passengers; let i=index">
-    <br>
+<div class="div3">
+<h2>Passengers' details:</h2>
+<div class="passengers" *ngFor="let passenger of passengers; let i=index">
 {{ passengers[i].child ? 'Child' : "" }}<br>
 Name: {{ passengers[i].name }}<br>
 Seat: {{ seats[i]}}<br>
 Extra luggage: {{ passengers[i].luggage ? 'Yes' : 'No' }}<br>
 </div>
-<br>
-FINAL PRICE: {{ (finalPrice | number : '1.2-2') + " " + currency }}
+<h1 class="price">PRICE: {{ (finalPrice | number : '1.2-2') + " " + currency }}
+<img (click)="resetCurrencies()" src="https://i.ibb.co/W5WZnJp/pln-color.png">
+<img (click)="countEur()" src="https://i.ibb.co/qD9Q1Pj/eur-color.png"> 
+<img (click)="countUsd()" src="https://i.ibb.co/xSwVgNP/usd-color.png">  
+</h1>
+</div>
 
-</ul>
-<br><button (click)="countEur()">EUR</button>
-<button (click)="countUsd()">USD</button>
-<button (click)="resetCurrencies()">PLN</button>
+<div class="div4"> 
+
+</div>
+
+</div>
 
 
+<router-outlet> </router-outlet>

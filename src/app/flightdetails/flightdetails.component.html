@@ -1,24 +1,34 @@
 
-<h1>Summary</h1>
+<div class="parent">
 
-<ul>
-  <li>Departure date: {{ showStorage.departureDate | date: 'fullDate' }} </li>
-  <li>Returning flight date: {{ showStorage.returnDate | date: 'fullDate' }} </li>
-  <li>Departure airport: {{ showStorage.departureAirport }} </li>
-  <li>Arrival airport: {{ showStorage.arrivalAirport }} </li>
-  <li>Number of passengers: {{ showStorage.passengersNumber }} </li>
-<br>
-Passengers data:
-
-<div *ngFor="let passenger of passengers; let i=index">
-  <p>Chosen seat: {{ chosenSeats[i] }}</p><input type="text" [name]="'name_' + 1" [(ngModel)]="passenger.name" placeholder="Name and surname"><br>
-  <input type="checkbox" [checked]="passenger.child" (change)="passenger.child = !passenger.child">Child
-  <input type="checkbox" [checked]="passenger.luggage" (change)="passenger.luggage = !passenger.luggage">Luggage
+<div class="div1"> 
+<a routerLink="/chooseflight"><img class="logo" src="https://i.ibb.co/StCPyT5/logo3.png"></a>
 </div>
 
-<br>
-<button routerLink="/summary" (click)="saveData()">Go to summary</button>
+<div class="div2">
+  <li><p class="travelInfo">Departure airport:</p><p class="travelInfoStorage"> {{ showStorage.departureAirport }}</p> </li>
+  <li><p class="travelInfo">Departure date:</p><p class="travelInfoStorage">{{ showStorage.departureDate | date: 'fullDate' }} </p></li>
+  <li><p class="travelInfo">Arrival airport:</p><p class="travelInfoStorage"> {{ showStorage.arrivalAirport }} </p></li>
+  <li><p class="travelInfo">Returning flight date:</p><p class="travelInfoStorage">{{ showStorage.returnDate | date: 'fullDate' }}</p></li>
 
-<br>
+</div>
+
+<div class="div3">
+<h2>Who will be flying with us?</h2>
+<div class="passengers" *ngFor="let passenger of passengers; let i=index">
+  <p><b>SEAT:</b> {{ chosenSeats[i] | uppercase }}
+  <input type="text" [name]="'name_' + 1" [(ngModel)]="passenger.name" placeholder="Name and surname">
+  <input type="checkbox" [checked]="passenger.child" (change)="passenger.child = !passenger.child">Child (0-17)
+  <input type="checkbox" [checked]="passenger.luggage" (change)="passenger.luggage = !passenger.luggage">+20kg paid luggage
+</div>
+  <button class="buttonMain" routerLink="/summary" (click)="saveData()">Check prices</button>
+</div>
+
+<div class="div4"> 
+
+</div>
+
+</div>
+
 
 <router-outlet> </router-outlet>
