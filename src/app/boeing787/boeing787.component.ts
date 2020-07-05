@@ -46,10 +46,8 @@ export class Boeing787Component implements OnInit {
           this.counter += 1;
           this.alert = "You need to choose " + (this.showStorage.passengersNumber - this.counter) + " seats." ;
       } else if (this.counter == this.showStorage.passengersNumber) {
-        alert(`You are reserving seats for ${this.showStorage.passengersNumber} passengers. If you would like to increase this number, please return to main page and change the reservation`)
+        alert(`You are reserving seats for ${this.showStorage.passengersNumber} passengers. If you would like to change your reservation, please return to main page and start again.`)
       }
-      console.log(this.chosenSeat);
-      console.log(this.seatsList);
 
       localStorage.setItem("chosenSeats", JSON.stringify(this.seatsList));
   }

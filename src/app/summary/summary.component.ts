@@ -25,7 +25,7 @@ export class SummaryComponent implements OnInit {
    public currency: string = "PLN";
 
    public passengers: any[];
-    public chosenSeats: any;
+   public chosenSeats: any;
    public adults: number;
    public seats: any[];
 
@@ -45,7 +45,6 @@ export class SummaryComponent implements OnInit {
     .then((resp) => resp.json())
     .then((data) => {
     let exchangeEur = data.rates[0].mid
-    console.log("Exchange rate: " + exchangeEur)
     this.finalPrice = (this.finalPriceOrigin / exchangeEur)
     this.currency = "EUR"
     })
@@ -83,7 +82,6 @@ export class SummaryComponent implements OnInit {
     this.childrenPrice = ((this.basePrice * this.childrenDiscount) * this.showStorage.children)
 
     this.adultsPrice = (this.adults * this.basePrice)
-    console.log(this.adultsPrice)
 
     const data = this.passengers
     this.luggageCounter = data.reduce((previousValue, currentValue) => {

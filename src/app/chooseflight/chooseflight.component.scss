@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 @import "../partials/colors";
-
+@import "../partials/flex";
+@import "../partials/other";
 
 .parent {
   display: grid;
@@ -8,7 +9,7 @@
   grid-template-rows: 1fr 1.5fr repeat(6, 1fr) 7vh;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  font-family: "Lato", sans-serif;
+  font-family: $fontMain;
   background: url("https://i.ibb.co/wyj9qRC/background-website-1200.png");
   background-repeat: no-repeat;
   height: 100vh;
@@ -25,7 +26,7 @@
 
 .div3 {
   grid-area: 9 / 1 / 10 / 8;
-  font-family: 'Lato', sans-serif;
+  font-family: $fontMain;
   color: white;
   margin-left: 3%;
   padding-top: 1.6%;
@@ -35,13 +36,13 @@
 .div4 {
   grid-area: 3 / 4 / 8 / 7;
   display: flex;
-  font-family: "Lato", sans-serif;
+  font-family: $fontMain;
   font-size: 2em;
   padding-right: 20vw;
   padding-left: 5vw;
   padding-top: 1vh;
   justify-content: center;
-  color: #564fb5;
+  color: $secondaryPurple;
 }
 
 .copy_main {
@@ -51,122 +52,99 @@
 .div5 {
   grid-area: 3 / 2 / 8 / 4;
   background-color: rgba(255, 255, 255, 0.678);
-  -webkit-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
-  -moz-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
-  box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+  @extend %dropShadow;
   border-radius: 25px;
 }
 
 .div6 {
   grid-area: 4 / 2 / 5 / 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @extend %flexCenterColumn;
   background-color: white;
-  font-family: "Lato", sans-serif;
+  font-family: $fontMain;
   margin: 10% 2% 0% 10%;
   padding-bottom: 1.5vh;
   border-radius: 15px;
   border-radius: 15px;
-  border: solid 2px rgba(86, 79, 181, 0.5);
+  border: solid 2px $secondaryPurpleTransparency
 }
 
 .div7 {
   grid-area: 4 / 3 / 5 / 4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @extend %flexCenterColumn;
   background-color: white;
-  font-family: "Lato", sans-serif;
+  font-family: $fontMain;
   margin: 10% 10% 0% 1%;
   padding-bottom: 1.5vh;
   border-radius: 15px;
   border-radius: 15px;
-  border: solid 2px rgba(86, 79, 181, 0.5);
+  border: solid 2px $secondaryPurpleTransparency
 }
 
 .div8 {
   grid-area: 5 / 2 / 6 / 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @extend %flexCenterColumn;
   background-color: white;
-  font-family: "Lato", sans-serif;
+  font-family: $fontMain;
   margin: 2% 2% 0% 10%;
   padding-bottom: 1.5vh;
   border-radius: 15px;
   border-radius: 15px;
-  border: solid 2px rgba(86, 79, 181, 0.5);
+  border: solid 2px $secondaryPurpleTransparency
 }
 
 .div9 {
   grid-area: 5 / 3 / 6 / 4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @extend %flexCenterColumn;
   background-color: white;
-  font-family: "Lato", sans-serif;
+  font-family: $fontMain;
   margin: 2% 10% 0% 1%;
   padding-bottom: 1.5vh;
   border-radius: 15px;
   border-radius: 15px;
-  border: solid 2px rgba(86, 79, 181, 0.5);
+  border: solid 2px $secondaryPurpleTransparency
 }
 
 .div10 {
   grid-area: 6 / 2 / 7 / 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @extend %flexCenterColumn;
   margin: auto;
-  font-family: "Lato", sans-serif;
+  font-family: $fontMain;
   background-color: white;
   margin: 2% 2% 0% 10%;
   padding-bottom: 1.5vh;
   border-radius: 15px;
-  border: solid 2px rgba(86, 79, 181, 0.5);
+  border: solid 2px $secondaryPurpleTransparency
 }
 
 .input {
   width: 60%;
   text-align: center;
   padding: 2% 0% 2% 0%;
-  font-family: 'Lato', sans-serif;
+  font-family: $fontMain;
   font-size: 1.2em;
   font-weight: bold;
-  border: solid 1px rgba(86, 79, 181, 0.5);
+  border: solid 1px $secondaryPurpleTransparency
 }
 
 .div11 {
   grid-area: 6 / 3 / 7 / 4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @extend %flexCenterColumn;
   margin: auto;
-  font-family: "Lato", sans-serif;
+  font-family: $fontMain;
   background-color: white;
   margin: 2% 10% 0% 1%;
   padding-bottom: 1.5vh;
   border-radius: 15px;
   border-radius: 15px;
-  border: solid 2px rgba(86, 79, 181, 0.5);
+  border: solid 2px $secondaryPurpleTransparency
 }
 
 .div12 {
   grid-area: 7 / 2 / 8 / 4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: "Lato", sans-serif;
+  @extend %flexCenterColumn;
+  font-family: $fontMain;
   padding-bottom: 1.5vh;
-  background-color: #564fb5;
+  background-color: $secondaryPurple;
   border-radius: 0 0 25px 25px;
   margin-top: 3vh;
 
@@ -176,25 +154,22 @@
     margin-top: 2%;
     padding: 3% 0% 3% 0%;
     border-radius: 40px 40px 40px 40px;
-    font-family: 'Lato', sans-serif;
+    font-family: $fontMain;
     background-color: $buttonColor;
     font-size: 2em;
     font-weight: bold;
   }
     .buttonMain:hover {
-    background-color: #fac421;
+    background-color: $mainOrange;
   }
 }
 
 .div13 {
   grid-area: 3 / 2 / 4 / 4;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  font-family: "Lato", sans-serif;
+  @extend %flexCenterRow;
+  font-family: $fontMain;
   padding-bottom: 0vh;
-  background-color: #564fb5;
+  background-color: $secondaryPurple;
   background-size: cover;
   border-radius: 25px 25px 0 0;
   color: white;
@@ -216,10 +191,10 @@
     width: 80%;
     text-align: center;
     padding: 2% 0% 2% 0%;
-    font-family: 'Lato', sans-serif;
+    font-family: $fontMain;
     font-size: 1em;
     font-weight: bold;
-    border: solid 1px rgba(86, 79, 181, 0.5);
+    border: solid 1px $secondaryPurpleTransparency
   }
 }
 
@@ -243,16 +218,16 @@
     width: 80%;
     text-align: center;
     padding: 2% 0% 2% 0%;
-    font-family: 'Lato', sans-serif;
+    font-family: $fontMain;
     font-size: 0.6em;
     font-weight: bold;
-    border: solid 1px rgba(86, 79, 181, 0.5);
+    border: solid 1px $secondaryPurpleTransparency
   }
 
   .div13 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     h1 {
       font-size: 2.5vh;
     }
@@ -283,10 +258,10 @@
     width: 80%;
     text-align: center;
     padding: 2% 0% 2% 0%;
-    font-family: 'Lato', sans-serif;
+    font-family: $fontMain;
     font-size: 0.75em;
     font-weight: bold;
-    border: solid 1px rgba(86, 79, 181, 0.5);
+    border: solid 1px $secondaryPurpleTransparency;
   }
 
   .div6, .div7, .div8, .div9, .div10, .div11 {
@@ -320,7 +295,7 @@
   }
 
   }
-    .div1 {    
+    .div1 {
     display: flex;
     align-items: center;
     justify-content: center;

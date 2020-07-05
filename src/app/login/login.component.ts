@@ -50,10 +50,6 @@ export class LoginComponent implements OnInit {
     this.existingData = this.existingData ? JSON.parse(this.existingData) : {};
     this.existingData["basePrice"] = this.basePrice;
     localStorage.setItem("flightdetails", JSON.stringify(this.existingData))
-    console.log("This existing data: ", this.existingData)
-
-    console.log(email.value.toLowerCase())
-    console.log(password.valueqdd)
 
     for (let i=0;i<users.length;i++){
       if (users[i].email == email.value.toLowerCase() && users[i].password == password.value){

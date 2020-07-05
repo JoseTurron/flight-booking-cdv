@@ -17,7 +17,7 @@ export class ChooseflightComponent implements OnInit {
     this.timeoutService.resetTimer();
   }
   public time: any;
-  public buttonText: string = "Fly!";
+  public buttonText: string = "Let's fly!";
   public numberOfPassengers: number = 1;
   public numberOfChildren: number = 0;
   public departureDate: any;

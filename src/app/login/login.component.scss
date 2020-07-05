@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 @import "../partials/colors";
+@import "../partials/flex";
+@import "../partials/other";
 
 .parent {
 display: grid;
@@ -9,22 +11,27 @@ grid-column-gap: 0px;
 grid-row-gap: 0px;
 background: url("https://i.ibb.co/VmVkfPd/login-background2.png");
 height: 100vh;
-font-family: 'Lato', sans-serif;
+font-family: $fontMain;
 }
 
 .div1 { grid-area: 1 / 1 / 2 / 4;
-margin-bottom: 3%;  }
-.div2 { grid-area: 6 / 1 / 7 / 4; }
-.div3 { 
+margin-bottom: 3%;
+}
+
+.div2 {
+  grid-area: 6 / 1 / 7 / 4;
+}
+
+.div3 {
   grid-area: 2 / 2 / 6 / 3;
   background-color: rgba(255, 255, 255, 0.678);
-  -webkit-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
-  -moz-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
-  box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
-  border-radius: 25px;  
+  @extend %dropShadow;
+  border-radius: 25px;
   background-color: $mainOrange;
   }
-.div4 { grid-area: 2 / 2 / 3 / 3;
+
+.div4 {
+  grid-area: 2 / 2 / 3 / 3;
   display: block;
   text-align: center;
   align-items: center;
@@ -41,35 +48,32 @@ margin-bottom: 3%;  }
    }
 
 
-.div5 { grid-area: 3 / 2 / 4 / 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; }
-.div6 { grid-area: 4 / 2 / 5 / 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; 
+.div5 {
+  grid-area: 3 / 2 / 4 / 3;
+  @extend %flexCenterColumn;
+ }
+
+.div6 {
+  grid-area: 4 / 2 / 5 / 3;
+  @extend %flexCenterColumn;
   padding-bottom: 3vh;
   }
-.div7 { grid-area: 5 / 2 / 6 / 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; 
+
+.div7 {
+  grid-area: 5 / 2 / 6 / 3;
+  @extend %flexCenterColumn;
   background-color: $secondaryPurple;
   border-radius: 0px 0px 25px 25px;
-    }
+  }
 
 .input {
   width: 60%;
   text-align: center;
   padding: 2% 0% 2% 0%;
-  font-family: 'Lato', sans-serif;
+  font-family: $fontMain;
   font-size: 1.2em;
   font-weight: bold;
-  border: solid 1px rgba(86, 79, 181, 0.5);
+  border: solid 1px $secondaryPurpleTransparency;
 }
 
 .buttonMain {
@@ -78,7 +82,7 @@ margin-bottom: 3%;  }
     margin-top: 2%;
     padding: 3% 0% 3% 0%;
     border-radius: 40px 40px 40px 40px;
-    font-family: 'Lato', sans-serif;
+    font-family: $fontMain;
     background-color: $buttonColor;
     font-size: 2em;
     font-weight: bold;
@@ -119,7 +123,7 @@ margin-bottom: 3%;  }
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
     img {
       width: 70vw;
     }
@@ -129,17 +133,18 @@ margin-bottom: 3%;  }
     width: 80%;
     text-align: center;
     padding: 2% 0% 2% 0%;
-    font-family: 'Lato', sans-serif;
+    font-family: $fontMain;
     font-size: 1em;
     font-weight: bold;
-    border: solid 1px rgba(86, 79, 181, 0.5);
+    border: solid 1px $secondaryPurpleTransparency;
   }
 
   .div4 {
   display: block;
   text-align: center;
+  font-size: 1em;
     .alert {
-      font-size: 0.9em;
+      font-size: 0.7em;
     }
   }
 }

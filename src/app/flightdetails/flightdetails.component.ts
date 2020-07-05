@@ -23,16 +23,6 @@ export class FlightdetailsComponent implements OnInit {
     this.timeoutService.resetTimer();
   }
 
-  luggageAdd() {
-    this.luggageCounter++
-    console.log(this.luggageCounter)
-  }
-
-  luggageRemove() {
-    this.luggageCounter--
-    console.log(this.luggageCounter)
-  }
-
   saveData() {
     localStorage.setItem("passengers", JSON.stringify(this.passengers));
   }

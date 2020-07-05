@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 @import "../partials/colors";
+@import "../partials/flex";
+@import "../partials/other";
 
 .parent {
 display: grid;
@@ -8,18 +10,18 @@ grid-template-rows: repeat(2, 1fr);
 grid-column-gap: 0px;
 grid-row-gap: 0px;
 height: 100vh;
-font-family: 'Lato', sans-serif;
+font-family: $fontMain;
 background: url("https://i.ibb.co/sb60X3Z/t-o-summary.png");
 }
 
-.div1 { 
+.div1 {
     grid-area: 1 / 1 / 2 / 7;
     background-color: white;
     height: 12vh;
     }
 
-.div2 { 
-    grid-area: 2 / 1 / 3 / 2; 
+.div2 {
+    grid-area: 2 / 1 / 3 / 2;
     display: flex;
     align-content: center;
     flex-direction: column;
@@ -30,9 +32,7 @@ background: url("https://i.ibb.co/sb60X3Z/t-o-summary.png");
     height: calc(100vh - 12vh);
     color: white;
     background-color: rgba(86, 79, 181, 0.80);
-    -webkit-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
-    -moz-box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
-    box-shadow: 10px 9px 9px -9px rgba(0, 0, 0, 0.64);
+    @extend %dropShadow;
     .travelInfo {
         font-size: 1.5em;
     }
@@ -42,7 +42,7 @@ background: url("https://i.ibb.co/sb60X3Z/t-o-summary.png");
     }
     }
 
-.div3 { 
+.div3 {
     grid-area: 2 / 2 / 3 / 3;
     font-size: 1.3em;
     color: $secondaryPurple;
@@ -68,7 +68,7 @@ background: url("https://i.ibb.co/sb60X3Z/t-o-summary.png");
         margin-top: 2%;
         padding: 3% 0% 3% 0%;
         border-radius: 40px 40px 40px 40px;
-        font-family: 'Lato', sans-serif;
+        font-family: $fontMain;
         background-color: $buttonColor;
         font-size: 0.7em;
         font-weight: bold;
@@ -82,7 +82,7 @@ button:hover {
 color: $secondaryPurple;
 }
 
-.div4 { 
+.div4 {
     grid-area: 3 / 1 / 4 / 3;
      }
 
@@ -94,7 +94,7 @@ color: $secondaryPurple;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     height: 100vh;
-    font-family: 'Lato', sans-serif;
+    font-family: $fontMain;
     background: url("https://i.ibb.co/f2PK3vX/t-o-summary-768.png");
     }
     .div1 {
@@ -133,7 +133,7 @@ color: $secondaryPurple;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     height: 100vh;
-    font-family: 'Lato', sans-serif;
+    font-family: $fontMain;
     background: url("https://i.ibb.co/f2PK3vX/t-o-summary-768.png");
     }
     .div1 {
@@ -177,7 +177,7 @@ color: $secondaryPurple;
         margin-top: 2%;
         padding: 3% 0% 3% 0%;
         border-radius: 20px 20px 20px 20px;
-        font-family: 'Lato', sans-serif;
+        font-family: $fontMain;
         background-color: $secondaryPurple;
         color: white;
         font-size: 1.2em;
@@ -194,7 +194,7 @@ color: $secondaryPurple;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     height: 100vh;
-    font-family: 'Lato', sans-serif;
+    font-family: $fontMain;
     background: url("https://i.ibb.co/f2PK3vX/t-o-summary-768.png");
     }
     .div1 {
@@ -237,7 +237,7 @@ color: $secondaryPurple;
         margin-top: 2%;
         padding: 3% 0% 3% 0%;
         border-radius: 20px 20px 20px 20px;
-        font-family: 'Lato', sans-serif;
+        font-family: $fontMain;
         background-color: $secondaryPurple;
         color: white;
         font-size: 1.2em;
