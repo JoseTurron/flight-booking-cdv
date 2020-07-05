@@ -18,8 +18,10 @@ export class TimeoutService {
     clearTimeout(this.time);
     this.time = setTimeout(() => {
     localStorage.removeItem("flightdetails");
+    localStorage.removeItem("passengers");
+    localStorage.removeItem("chosenSeats");
     alert("Due to inactivity, your session has expired. Please start again");
     this.router.navigate(["/chooseflight"]);
-    }, 18000000000);
+    }, 180000);
   }
 }

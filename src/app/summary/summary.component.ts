@@ -97,8 +97,6 @@ export class SummaryComponent implements OnInit {
 
     this.finalPriceOrigin = this.finalPrice;
 
-    console.log("base price: ", this.basePrice, "children price: ", this.childrenPrice, "adults price: ", this.adultsPrice, "luggage price: ", this.luggagePrice, "luggage counter: ", this.luggageCounter)
-    console.log("final price: ", this.finalPrice)
   }
 
 }
