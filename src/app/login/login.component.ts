@@ -27,9 +27,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
-    this.connectionService.getConnectionDetails().subscribe((result) => {
-      console.log("result", result[0].connection);
-    })
     this.timeoutService.resetTimer();
 
     this.basePrice = fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/PL/PLN/en-US/${this.showStorage.departureAPI}/${this.showStorage.arrivalAPI}/${this.showStorage.departureDate}?inboundpartialdate=${this.showStorage.returnDate}`,
