@@ -2,7 +2,7 @@
 <div class="parent">
 
 <div class="div1">
-<a routerLink="/chooseflight"><img class="logo" src="https://i.ibb.co/StCPyT5/logo3.png"></a>
+  <a routerLink="/chooseflight"><img class="logo" src="/assets/png/logo.png"></a>
 </div>
 
 <div class="div2">
@@ -25,9 +25,9 @@ Seat: {{ seats[i]}}<br>
 Extra luggage: {{ passengers[i].luggage ? 'Yes' : 'No' }}<br>
 </div>
 <h1 class="price">PRICE: {{ (finalPrice | number : '1.2-2') + " " + currency }}
-<img (click)="resetCurrencies()" src="https://i.ibb.co/Zm8RFwr/pln-color-wide.png">
-<img (click)="countEur()" src="https://i.ibb.co/nBcWnj3/eur-color-wide.png">
-<img (click)="countUsd()" src="https://i.ibb.co/BNv1xPy/usd-color-wide.png">
+<img (click)="resetCurrencies()" src="/assets/png/pln.png">
+<img (click)="countEur()" src="/assets/png/eur.png">
+<img (click)="countUsd()" src="/assets/png/usd.png">
 </h1>
 </div>
 
