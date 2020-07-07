@@ -114,6 +114,9 @@
     h1 {
       @extend %flexCenterNoalign;
     }
+    .occupiedBlock {
+      @extend %flexCenterRow;
+    }
    }
 
   .div6 {
@@ -121,11 +124,22 @@
     @extend %flexCenterColumn;
     font-size: 3vh;
     color: white;
+      .seatsNumber {
+        @extend %flexCenterColumn;
+        margin-top: 2vh;
+        .seatsCount {
+          margin-top: 0px;
+          font-size: 0.4em;
+          margin-bottom: 0px;
+        }
+      }
     .seatslist {
       color: $mainOrange;
+      margin-top: 1vh;
+      margin-bottom: 1vh;
     }
     .chosenseats {
-      margin-right: 10%;
+      margin-top: 1vh;
     }
    }
 
