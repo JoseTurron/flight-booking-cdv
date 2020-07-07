@@ -1,6 +1,6 @@
-# **LOGIN:
+# LOGIN:
 
-**When in login view, you may use "test" as both login and password. 
+When in login view, you may use "test" as both login and password. 
 
 
 
