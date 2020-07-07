@@ -18,14 +18,17 @@ export class LoginComponent implements OnInit {
    }
 
   public showStorage: any;
+  public visibleCounter;
+  public counter: number = 4;
   public basePrice;
   public alert: string = "SIGN IN";
   public alertSign: string = "";
   public existingData = localStorage.getItem("flightdetails")
 
   ngOnInit() {
+
     this.connectionService.getConnectionDetails().subscribe((result) => {
-      console.log("result",result);
+      console.log("result", result[0].connection);
     })
     this.timeoutService.resetTimer();
 
@@ -46,10 +49,29 @@ export class LoginComponent implements OnInit {
         });
   }
 
+  countTo0() {
+  const frequency = setInterval(() => {
+    this.visibleCounter = this.counter;
+    let oneDown = this.counter--
+    if (this.counter <= 0 ) {
+      clearInterval(frequency);
+      this.document.location.reload()
+    }
+  }, 1000);
+  }
+
   log(email,password){
+    if (this.basePrice.__zone_symbol__value > 0) {
     this.existingData = this.existingData ? JSON.parse(this.existingData) : {};
     this.existingData["basePrice"] = this.basePrice;
     localStorage.setItem("flightdetails", JSON.stringify(this.existingData))
+    } else {
+      this.basePrice.__zone_symbol__value = this.showStorage.defaultPrice;
+      this.existingData = this.existingData ? JSON.parse(this.existingData) : {};
+      this.existingData["basePrice"] = this.basePrice;
+      localStorage.setItem("flightdetails", JSON.stringify(this.existingData))
+    }
+
 
     for (let i=0;i<users.length;i++){
       if (users[i].email == email.value.toLowerCase() && users[i].password == password.value){
@@ -73,9 +95,8 @@ export class LoginComponent implements OnInit {
 
       }
       else{
-        this.comUser = 'reloading page in 3 seconds'
+        this.comUser = "Reloading in";
         this.alert = "WRONG LOGIN OR PASSWORD"
-        setTimeout(function() {  this.document.location.reload(); },4000);
       }
     }
   }

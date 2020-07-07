@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';7
 import { Router, RouterLink } from '@angular/router';
 import { TimeoutService } from '../timeout.service';
+import { fixedPriceBombardier, fixedPriceBoeing737, fixedPriceBoeing787} from '../prices'
 
 @Component({
   selector: 'app-chooseflight',
@@ -29,6 +30,7 @@ export class ChooseflightComponent implements OnInit {
   public arrivalAPI;
   public connection;
   public basePrice: number = 0;
+  public defaultPrice: number = 0;
   public today = new Date();
   public todayShort = new Date().toISOString().slice(0,10);
 
@@ -41,7 +43,7 @@ export class ChooseflightComponent implements OnInit {
 
   saving() {
     localStorage.removeItem("flightdetails");
-    this.connection = this.departureAirport + this.destinationAirport
+    this.connection = this.departureAirport + this.destinationAirport;
     if (this.departureAirport == "Warsaw") {
       this.departureAPI = "WAW-sky";
     } else if (this.departureAirport == "Paris") {
@@ -57,6 +59,14 @@ export class ChooseflightComponent implements OnInit {
       this.arrivalAPI = "JFK-sky";
     }
 
+    if ((this.connection == "WarsawNew York") || (this.connection == "New YorkWarsaw")) {
+      this.defaultPrice = fixedPriceBoeing787;
+    }  else if ((this.connection == "ParisNew York") || (this.connection == "New YorkParis")) {
+      this.defaultPrice = fixedPriceBoeing737;
+    }  else if ((this.connection == "ParisWarsaw") || (this.connection == "WarsawParis")) {
+      this.defaultPrice = fixedPriceBombardier;
+    }  
+
       let dataStorage = {
         departureDate: this.departureDate,
         returnDate: this.returnDate,
@@ -66,6 +76,7 @@ export class ChooseflightComponent implements OnInit {
         departureAPI: this.departureAPI,
         arrivalAPI: this.arrivalAPI,
         basePrice: this.basePrice,
+        defaultPrice: this.defaultPrice,
         connection: this.connection,
         children: this.numberOfChildren
       };

@@ -58,9 +58,7 @@
     background-color: $mainOrange;
     margin: 2vh 2vw 2vh 1vw;
     border-radius: 25px 0px 0px 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @extend %flexCenter;
     flex-wrap: wrap;
     font-size: 2vh;
     @extend %dropShadow;
@@ -109,15 +107,12 @@
     padding-top: 1.5%;
     background-color: white;
     @extend %dropShadow;
-    display: block;
-    align-items: center;
-    justify-content: center;
+    @extend %blockCenter;
     width: 100%;
     max-height: 100%;
     overflow: auto;
     h1 {
-      display: flex;
-      justify-content: center;
+      @extend %flexCenterNoalign;
     }
    }
 

@@ -10,7 +10,7 @@
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   font-family: $fontMain;
-  background: url("https://i.ibb.co/wyj9qRC/background-website-1200.png");
+  background: url(src/assets/png/landing-1200.png);
   background-repeat: no-repeat;
   height: 100vh;
 }
@@ -183,7 +183,7 @@
     }
   }
   .parent {
-    background: url("https://i.ibb.co/yNL5XvX/background-website-768.png");
+    background: url(src/assets/png/landing-768.png);
     height: 100vh;
     overflow-y: hidden;
   }
@@ -200,7 +200,7 @@
 
 @media only screen and (min-width: 545px) and (max-width: 819px) {
   .parent {
-    background: url("https://i.ibb.co/zfh4YVf/background-website-mobile.png");
+    background: url(src/assets/png/landing-mobile.png);
     grid-template-columns: 10vw 27.5vw 27.5vw 10vw;
     padding-left: 12vw;
     height: 100vh;
@@ -237,7 +237,7 @@
 @media only screen and (max-width: 544px) {
 
   .parent {
-    background: url("https://i.ibb.co/zfh4YVf/background-website-mobile.png")
+    background: url(src/assets/png/landing-mobile.png);
   }
   .div4 {
     display: none;

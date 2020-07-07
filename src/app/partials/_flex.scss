@@ -5,7 +5,33 @@
   flex-direction: column;
 }
 
+%flexCenterColumnAligncontent {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+%flexCenterColumnNojustify {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+%passengersFlex {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+
 %flexCenterRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+%flexCenterRowNoalign {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,8 +44,30 @@
   justify-content: center;
 }
 
+%flexCenterNojustify {
+  display: flex;
+  align-items: center;
+}
+
+%flexCenterNoalign {
+  display: flex;
+  justify-content: center;
+}
+
 %flexColumnVertical {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+%flexCenterColumnNoalign {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+%blockCenter {
+  display: block;
+  align-items: center;
+  justify-content: center;
 }

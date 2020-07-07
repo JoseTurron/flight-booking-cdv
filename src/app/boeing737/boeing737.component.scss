@@ -26,9 +26,7 @@
   grid-area: 1 / 1 / 2 / 7;
   background-color: white;
   font-size: 4vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @extend %flexCenterColumnNojustify;
   flex-flow: wrap;
   padding-right: 10vw;
   img {
@@ -111,15 +109,12 @@
     padding-top: 1.5%;
     background-color: white;
     @extend %dropShadow;
-    display: block;
-    align-items: center;
-    justify-content: center;
+    @extend %blockCenter;
     width: 100%;
     max-height: 100%;
     overflow: auto;
     h1 {
-      display: flex;
-      justify-content: center;
+    @extend %flexCenterNoalign;
     }
    }
 

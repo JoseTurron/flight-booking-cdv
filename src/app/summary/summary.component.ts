@@ -66,6 +66,7 @@ export class SummaryComponent implements OnInit {
       }
 
   ngOnInit() {
+
     this.timeoutService.resetTimer();
     if (this.showStorage.chosenPlane == "bombardier") {
       this.luggagePrice = luggageBombardier;
