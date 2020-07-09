@@ -19,10 +19,15 @@
 <div class="div3">
 <h2>Passengers' details:</h2>
 <div class="passengers" *ngFor="let passenger of passengers; let i=index">
-{{ passengers[i].child ? 'Child' : "" }}<br>
-Name: {{ passengers[i].name }}<br>
-Seat: {{ seats[i]}}<br>
-Extra luggage: {{ passengers[i].luggage ? 'Yes' : 'No' }}<br>
+  <div class="seats">{{ seats[i]}}</div>
+  <div [ngClass]="{'bag': passenger.luggage, 'noBag': !passenger.luggage}">
+  </div>
+  <div [ngClass]="{'child': passengers[i].child, 'adult': !passengers[i].child}">
+  </div>
+  <div class="passengerName">
+    {{ passengers[i].name }}
+  </div>
+<!-- Extra luggage: {{ passengers[i].luggage ? 'Yes' : 'No' }}<br> -->
 </div>
 <h1 class="price">PRICE: {{ (finalPrice | number : '1.2-2') + " " + currency }}
 <img (click)="resetCurrencies()" src="/assets/png/pln.png">

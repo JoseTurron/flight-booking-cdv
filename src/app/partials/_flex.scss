@@ -21,7 +21,13 @@
 %passengersFlex {
   display: flex;
   align-content: center;
-  flex-direction: column;
+  flex-direction: row;
+}
+
+%summaryIcons {
+  height: 6vh;
+  width: auto;
+  margin-right: 0.5vw;
 }
 
 %flexCenterRow {

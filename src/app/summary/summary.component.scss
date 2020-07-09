@@ -3,6 +3,34 @@
 @import "../partials/flex";
 @import "../partials/other";
 
+.bag {
+    height: 6vh;
+  width: auto;
+  margin-right: 0.5vw;
+  content: url(src/assets/png/suitcase.png);
+}
+
+.noBag {
+    height: 6vh;
+  width: auto;
+  margin-right: 0.5vw;
+  content: url(src/assets/png/suitcase-negative.png);
+}
+
+.child {
+    height: 6vh;
+  width: auto;
+  margin-right: 0.5vw;
+  content: url(src/assets/png/child.png);
+}
+
+.adult {
+    height: 6vh;
+  width: auto;
+  margin-right: 0.5vw;
+  content: url(src/assets/png/adult.png);
+}
+
 .parent {
 display: grid;
 grid-template-columns: repeat(2, 1fr);
@@ -55,30 +83,33 @@ background: url(src/assets/png/background-final-1200.png);
     width:70%;
     max-height: 100vh;
         .passengers {
-        font-size: 0.7em;
+        font-size: 0.8em;
         color: black;
         text-shadow: 0px 0px #ffffff;
         background-color: rgba(255, 255, 255, 0.70);
-        padding: 0.05% 0% 0.05% 2%;
+        padding: 2vh 0% 2vh 2%;
         list-style-type: none;
         margin-bottom: 0.5vh;
         @extend %passengersFlex;
         padding-bottom: 1vh;
         padding-top: 1vh;
-        }
-            .buttonMain {
-        width: 20%;
-        height: 8%;
-        margin-top: 2%;
-        padding: 3% 0% 3% 0%;
-        border-radius: 40px;
-        font-family: $fontMain;
-        background-color: $buttonColor;
-        font-size: 0.7em;
-        font-weight: bold;
-            &:hover {
-            background-color: $mainOrange;
-        }
+          .seats {
+            background: url(src/assets/png/seat.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 2.2vw;
+            margin-right: 0.9vw;
+            margin-top: 0.1vh;
+            padding-top: 2vh;
+            padding-left: 1.4vh;
+            font-family: $fontMain;
+            font-weight: bold;
+          }
+          .passengerName {
+            @extend %flexCenterRow;
+            font-size: 1.5em;
+            font-weight: bold;
+          }
         }
         .price {
             background-color: white;
@@ -90,11 +121,7 @@ background: url(src/assets/png/background-final-1200.png);
             height: 4vh;
             padding-top: 5px;
             }
-     }
-
-button:hover {
-color: $secondaryPurple;
-}
+      }
 
 .div4 {
     grid-area: 3 / 1 / 4 / 3;
@@ -136,15 +163,6 @@ color: $secondaryPurple;
     .div3 {
     font-size: 0.8em;
     padding-left: 2%;
-    .buttonMain {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 2%;
-    padding: 0 0 0 10px;
-        &:hover {
-            background-color: $mainOrange;
-        }
-    }
     }
 }
 
@@ -190,21 +208,62 @@ color: $secondaryPurple;
         margin-bottom: 0.5vh;
         display: flex;
         align-content: center;
-        flex-direction: column;
+        flex-direction: row;
         padding-bottom: 1vh;
+            .seats {
+              background: url(src/assets/png/seat.png);
+              background-size: contain;
+              background-repeat: no-repeat;
+              width: 5vw;
+              margin-right: 0.9vw;
+              margin-top: 0.5vh;
+              padding-top: 1.2vh;
+              padding-left: 1vh;
+              font-family: $fontMain;
+              font-weight: bold;
+            }
+            .passengerName {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-direction: row;
+              font-size: 1em;
+              font-weight: bold;
+            }
+            .bag {
+            height: 5vh;
+            width: auto;
+            margin-right: 0.5vw;
+            content: url(src/assets/png/suitcase.png);
+            }
+            .noBag {
+            height: 5vh;
+            width: auto;
+            margin-right: 0.5vw;
+            content: url(src/assets/png/suitcase-negative.png);
+            }
+
+            .child {
+            height: 5vh;
+            width: auto;
+            margin-right: 0.5vw;
+            content: url(src/assets/png/child.png);
+            }
+
+            .adult {
+            height: 5vh;
+            width: auto;
+            margin-right: 0.5vw;
+            content: url(src/assets/png/adult.png);
+            }
         }
-    .buttonMain {
-        width: 100%;
-        height: 8%;
-        margin-top: 2%;
-        padding: 3% 0% 3% 0%;
-        border-radius: 20px;
-        font-family: $fontMain;
-        background-color: $secondaryPurple;
-        color: white;
-        font-size: 1.2em;
-        font-weight: bold;
-    }
+        .price {
+          background-color: white;
+          padding: 5px 15px 5px 5px;
+          border-radius: 25px;
+          text-align: right;
+          font-size: 2.2em;
+        }
     }
 }
 
@@ -235,13 +294,29 @@ color: $secondaryPurple;
     width: 30vw;
     }
     .div3 {
-    width: 90%;
+    width: 95%;
     max-height: 100%;
     overflow: auto;
     font-size: 0.7em;
     margin-right: 7vw;
+    margin-right: 0.1vw;
+    margin-top: 0.1vh;
+    padding-top: 0.2vh;
+    padding-left: 0.9vh;
+    .seats {
+      background: url(src/assets/png/seat.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 6vw !important;
+      margin-right: 0.1vw;
+      margin-top: 0.1vh;
+      padding-top: 1vh !important;
+      padding-left: 0.7vh !important;
+      font-family: $fontMain;
+      font-weight: bold;
+    }
         .passengers {
-        font-size: 0.9em;
+        font-size: 0.5em;
         color: black;
         background-color: rgba(255, 255, 255, 0.70);
         padding: 0.05% 2% 0.05% 4%;
@@ -250,28 +325,51 @@ color: $secondaryPurple;
         margin-bottom: 0.5vh;
         display: flex;
         align-content: center;
-        flex-direction: column;
+        flex-direction: row;
         padding-bottom: 1vh;
         }
-    .buttonMain {
-        width: 100%;
-        height: 8%;
-        margin-top: 2%;
-        padding: 3% 0% 3% 0%;
-        border-radius: 20px;
-        font-family: $fontMain;
-        background-color: $secondaryPurple;
-        color: white;
-        font-size: 1.2em;
+        .price {
+        background-color: white;
+        padding: 5px 15px 5px 5px;
+        border-radius: 25px;;
+        font-size: 1.4em;
+        margin-right: 0.2em;
+        text-align: right;
+        }
+        .bag {
+        height: 4vh;
+        width: auto;
+        margin-right: 0.5vw;
+        content: url(src/assets/png/suitcase.png);
+        }
+
+        .noBag {
+        height: 4vh;
+        width: auto;
+        margin-right: 0.5vw;
+        content: url(src/assets/png/suitcase-negative.png);
+        }
+
+        .child {
+        height: 4vh;
+        width: auto;
+        margin-right: 0.5vw;
+        content: url(src/assets/png/child.png);
+        }
+
+        .adult {
+        height: 4vh;
+        width: auto;
+        margin-right: 0.5vw;
+        content: url(src/assets/png/adult.png);
+        }
+        .passengerName {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        font-size: 1em;
         font-weight: bold;
-    }
-            .price {
-            background-color: white;
-            padding: 5px 15px 5px 5px;
-            border-radius: 25px;;
-            font-size: 1.4em;
-            margin-right: 0.2em;
-            text-align: right;
         }
     }
 }
