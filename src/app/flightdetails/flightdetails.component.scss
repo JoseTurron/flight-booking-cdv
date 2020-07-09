@@ -2,6 +2,7 @@
 @import "../partials/colors";
 @import "../partials/flex";
 @import "../partials/other";
+@import "../partials/animations";
 
 .parent {
 display: grid;
@@ -17,16 +18,20 @@ background: url(src/assets/png/background-summary-big.png);
 .div1 {
     grid-area: 1 / 1 / 2 / 7;
     background-color: white;
-    height: 12vh;
+    height: 11vh;
+      img {
+        height: 10vh;
+      }
     }
 
 .div2 {
+    @extend %transformLeft;
     grid-area: 2 / 1 / 3 / 2;
     @extend %flexCenterColumnAligncontent;
     list-style-type: none;
     padding-left: 15%;
     margin-right: 20vw;
-    height: calc(100vh - 12vh);
+    height: calc(100vh - 11vh);
     color: white;
     background-color: rgba(86, 79, 181, 0.80);
     @extend %dropShadow;
@@ -38,6 +43,10 @@ background: url(src/assets/png/background-summary-big.png);
         font-weight: bold;
     }
     }
+
+.slide-in {
+  @extend %slideIn;
+}
 
 .div3 {
     grid-area: 2 / 2 / 3 / 3;
@@ -64,6 +73,7 @@ background: url(src/assets/png/background-summary-big.png);
         padding: 3% 0% 3% 0%;
         border-radius: 40px;
         font-family: $fontMain;
+        font-weight: bold;
         background-color: $buttonColor;
         font-size: 0.7em;
         font-weight: bold;
@@ -71,10 +81,6 @@ background: url(src/assets/png/background-summary-big.png);
             background-color: $mainOrange;
         }
     }
-     }
-
-button:hover {
-color: $secondaryPurple;
 }
 
 .div4 {

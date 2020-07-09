@@ -15,13 +15,13 @@ background: url(src/assets/png/background-final-1200.png);
 }
 
 .div1 {
-    grid-area: 1 / 1 / 2 / 7;
+  grid-area: 1 / 1 / 2 / 7;
   background-color: white;
   font-size: 4vh;
   @extend %flexCenterRowNoalign;
   flex-flow: wrap;
   justify-content: space-between;
-  padding-right: 10vw;
+  padding-right: 12vw;
   img {
     height: 10vh;
   }
