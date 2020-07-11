@@ -4,28 +4,28 @@
 @import "../partials/other";
 
 .bag {
-    height: 6vh;
+  height: 5vh;
   width: auto;
   margin-right: 0.5vw;
   content: url(src/assets/png/suitcase.png);
 }
 
 .noBag {
-    height: 6vh;
+  height: 5vh;
   width: auto;
   margin-right: 0.5vw;
   content: url(src/assets/png/suitcase-negative.png);
 }
 
 .child {
-    height: 6vh;
+  height: 5vh;
   width: auto;
   margin-right: 0.5vw;
   content: url(src/assets/png/child.png);
 }
 
 .adult {
-    height: 6vh;
+  height: 5vh;
   width: auto;
   margin-right: 0.5vw;
   content: url(src/assets/png/adult.png);
@@ -101,7 +101,7 @@ background: url(src/assets/png/background-final-1200.png);
             margin-right: 0.9vw;
             margin-top: 0.1vh;
             padding-top: 2vh;
-            padding-left: 1.4vh;
+            padding-left: 0.9vh;
             font-family: $fontMain;
             font-weight: bold;
           }
@@ -307,14 +307,14 @@ background: url(src/assets/png/background-final-1200.png);
       background: url(src/assets/png/seat.png);
       background-size: contain;
       background-repeat: no-repeat;
-      width: 6vw !important;
+      width: 7vw !important;
       margin-right: 0.1vw;
       margin-top: 0.1vh;
       padding-top: 1.1vh !important;
-      padding-left: 0.8vh !important;
+      padding-left: 0.7vh !important;
       font-family: $fontMain;
       font-weight: bold;
-      font-size: 1.8em;
+      font-size: 1.5em;
     }
         .passengers {
         font-size: 0.5em;
